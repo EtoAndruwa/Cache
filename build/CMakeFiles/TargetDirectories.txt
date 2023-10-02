@@ -1,6 +1,0 @@
-/home/etoandruwa/Desktop/Hash/build/CMakeFiles/main.dir
-/home/etoandruwa/Desktop/Hash/build/CMakeFiles/edit_cache.dir
-/home/etoandruwa/Desktop/Hash/build/CMakeFiles/rebuild_cache.dir
-/home/etoandruwa/Desktop/Hash/build/include/CMakeFiles/include.dir
-/home/etoandruwa/Desktop/Hash/build/include/CMakeFiles/edit_cache.dir
-/home/etoandruwa/Desktop/Hash/build/include/CMakeFiles/rebuild_cache.dir
