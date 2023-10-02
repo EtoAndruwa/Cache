@@ -23,5 +23,8 @@ int main()
 
     print_page_list(page_list);
 
+    LFU_cache cache(cache_size, page_list_size, page_list);
+    cache.print_LFU();
+
     return 0;
 }

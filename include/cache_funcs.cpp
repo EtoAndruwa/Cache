@@ -45,15 +45,3 @@ int get_input(int& cache_size, int& page_list_size) // OK
     return RETURN_OK;
 }
 
-void print_page_list(const list& page_list)
-{
-    std::cout << "page_list: ";
-
-    for (auto const &i: page_list) 
-    {   
-        std::cout << i << " ";
-    }
-
-    std::cout << std::endl;
-}
-
