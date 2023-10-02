@@ -1,12 +1,12 @@
-##This is the Hash program
+## This is the Hash program
 
-##How to install?
+## How to install?
 
-##How to use?
+## How to use?
 
-##Available funcitonality
+## Available funcitonality
 
-##Known issues:
+## Known issues:
 *
 *
 *
