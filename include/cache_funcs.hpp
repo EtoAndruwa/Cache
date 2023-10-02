@@ -7,9 +7,15 @@ enum error_codes
     ERR_INV_PAGE_L_SIZE = -2,
 };
 
+enum return_codes
+{   
+    VALUE_WAS_NOT_FOUND = -1,
+};
 
 int get_input(int& cache_size, int& page_list_size);
 LFU_cache fill_cache(const LFU_cache& LFU_ref);
 int get_page_list(list& page_list, const int& page_list_size);
 void print_page_list(const list& page_list);
+int get_cache(LFU_cache& LFU_cache_ref);
+int bubble_sort(Cache_elem* cache_ptr, const size_t& cache_size);
 
