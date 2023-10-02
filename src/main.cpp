@@ -1,4 +1,4 @@
-#include "LRU.hpp"
+#include "LFU.hpp"
 #include "cache_funcs.hpp"
 
 int main()
@@ -15,16 +15,13 @@ int main()
     }
 
     list page_list;
-    page_list.push_back(1);
-    page_list.push_back(2);
-    page_list.push_back(3);
-    page_list.push_back(4);
-    // print_page_list(page_list);
-
-    for (auto const &i: page_list) {
-        std::cout << i << " ";
+    if(err_code = get_page_list(page_list, page_list_size))
+    {
+        std::cout << "Error code: "  << err_code << std::endl;
+        return err_code;
     }
-    
+
+    print_page_list(page_list);
 
     return 0;
 }

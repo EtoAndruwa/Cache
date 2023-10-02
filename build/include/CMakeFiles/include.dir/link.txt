@@ -1,0 +1,2 @@
+/usr/bin/ar qc libinclude.a CMakeFiles/include.dir/cache_funcs.cpp.o CMakeFiles/include.dir/LFU.cpp.o
+/usr/bin/ranlib libinclude.a

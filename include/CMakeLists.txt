@@ -4,6 +4,6 @@ cmake_minimum_required(VERSION 3.10) # Проверка версии CMake.
 
 project(include) # Название проекта
 
-set(SOURCE_LIB cache_funcs.cpp LRU.cpp) # Установка переменной со списком исходников
+set(SOURCE_LIB cache_funcs.cpp LFU.cpp) # Установка переменной со списком исходников
 
 add_library(include STATIC ${SOURCE_LIB}) # Создание статической библиотеки

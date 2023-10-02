@@ -1,12 +1,24 @@
-#include "LRU.hpp"
+#include "LFU.hpp"
 #include "cache_funcs.hpp"
 
-LRU_cache& fill_cache()
+int get_page_list(list& page_list, const int& page_list_size)
 {
-    
+    #ifdef DEBUG
+        std::cout << "page_list_size = " << page_list_size << std::endl;
+    #endif  
+
+    elem_type temp = 0;
+
+    for(size_t i = 0; i < page_list_size; i++)
+    {   
+        std::cin >> temp;
+        page_list.push_back(temp);
+    }
+
+    return RETURN_OK;
 }
 
-int get_input(int& cache_size, int& page_list_size)
+int get_input(int& cache_size, int& page_list_size) // OK
 {
     std::cin >> cache_size;
     
@@ -33,9 +45,15 @@ int get_input(int& cache_size, int& page_list_size)
     return RETURN_OK;
 }
 
-// void print_page_list(list& list_ref)
-// {
-//     for (auto const &i: list_ref) {
-//         std::cout << i << std::endl;
-//     }
-// }
+void print_page_list(const list& page_list)
+{
+    std::cout << "page_list: ";
+
+    for (auto const &i: page_list) 
+    {   
+        std::cout << i << " ";
+    }
+
+    std::cout << std::endl;
+}
+
