@@ -19,14 +19,28 @@ LFU_cache::LFU_cache(const int& cache_size, const int& page_list_size, const lis
     cache_size_ = cache_size;
     page_list_size_ = page_list_size; 
     page_list_ = page_list;
+    cache_is_full_ = false;
+
+    cache_ptr_ = new Cache_elem[cache_size_];
+    if(cache_ptr_ == nullptr)
+    {
+        std::cout << "LFU cache_ptr_ is nullptr" << std::endl;
+    }
 }
 
 void LFU_cache::print_LFU()
 {
-    std::cout << "LFU cache_size_: " << cache_size_ << std::endl;
+    std::cout << "\nLFU cache_size_: " << cache_size_ << std::endl;
     std::cout << "LFU page_list_size_: " << page_list_size_ << std::endl;
     std::cout << "LFU page_list_ ";
     print_page_list(page_list_);
+   
+    std::cout << "\n==========Cache data==========\n";
+    for(size_t i = 0; i < cache_size_; i++)
+    {
+        std::cout << "cache_ptr_[" << i << "]: " << cache_ptr_[i].elem_value_ << " " << cache_ptr_[i].num_of_calls_ << std::endl;
+    }   
+    std::cout << "==========Cache data==========\n";
 }
 
 LFU_cache::~LFU_cache()

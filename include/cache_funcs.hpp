@@ -12,3 +12,4 @@ int get_input(int& cache_size, int& page_list_size);
 LFU_cache fill_cache(const LFU_cache& LFU_ref);
 int get_page_list(list& page_list, const int& page_list_size);
 void print_page_list(const list& page_list);
+
