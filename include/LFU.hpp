@@ -7,7 +7,7 @@
 #include <cstdlib> 
 #include <valgrind/memcheck.h>
 
-#define DEBUG
+// #define DEBUG
 
 typedef int elem_type;             // The type of element for which LFU cache was made
 typedef std::list<elem_type> list; // std::list typedef
@@ -23,12 +23,12 @@ class Cache_elem
     public:
         int num_of_calls_;     // This value stores how many times element was in the flow before
         elem_type elem_value_; // This value stores the value of variable
-        int num_of_iters_;     // This value stores how many times element was in the flow before
+        int num_of_iter_;     // This value stores how many times element was in the flow before
 };
 
 class LFU_cache
 {   
-    friend int binary_search(Cache_elem* cache_ptr, const size_t& cache_size, const elem_type& value);
+    friend void *bsearch(const void *__key, const void *__base, size_t __nmemb, size_t __size, comparison_fn_t __compar);
     friend void qsort(void *__base, size_t __nmemb, size_t __size, comparison_fn_t __compar);
     friend int get_cache(LFU_cache& LFU_cache_ref);
 
