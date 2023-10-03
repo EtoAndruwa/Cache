@@ -26,7 +26,7 @@ int main()
     LFU_cache cache(cache_size);
     cache.print_LFU();
 
-    get_cache(cache);
+    get_cache(cache, page_list);
     cache.print_LFU();
 
     return 0;

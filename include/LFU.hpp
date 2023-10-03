@@ -1,16 +1,16 @@
 #pragma once 
 
-#include <iostream>
-#include <unordered_map>
-#include <list>
+#include <iostream> 
+#include <list>     
 #include <array>
 #include <bits/stdc++.h>
-#include <cstdlib>
+#include <cstdlib> 
+#include <valgrind/memcheck.h>
 
 #define DEBUG
 
-typedef int elem_type; // The type of element for which LFU cache was made
-typedef std::list<elem_type> list;
+typedef int elem_type;             // The type of element for which LFU cache was made
+typedef std::list<elem_type> list; // std::list typedef
 
 class Cache_elem
 {
@@ -44,15 +44,16 @@ class LFU_cache
          * Move assignment
         */
 
-        void print_LFU() const;
-        bool get_full_status() const;
-        size_t get_cache_size() const;
+        void print_LFU() const;                 // prints all data about LFU_cache
+        bool get_full_status() const;           // get the value of cache_is_full_
+        void set_full_status(const bool& val);  // get the value of cache_is_full_
+        size_t get_cache_size() const;          // gets tha value of cache_size_
+        Cache_elem* get_cache_ptr() const;      // get the pointer to the array of Cache_elem's
 
     private:
-
-        size_t cache_size_;
-        bool cache_is_full_;
-        Cache_elem* cache_ptr_;
+        size_t cache_size_;             // stores the cache size
+        bool cache_is_full_;            // stores the cache flag of being full
+        Cache_elem* cache_ptr_;         // stores the pointer ot the array of Cache_elem's
 };  
 
 class Page_list
@@ -62,6 +63,6 @@ class Page_list
     */
    
     public:
-        list page_list_ptr_;
-        size_t page_list_size_;
+        list page_list_ptr_;            // std::list typedef for list of pages
+        size_t page_list_size_;         // the number of elements in the std::list
 };

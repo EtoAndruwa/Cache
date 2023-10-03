@@ -47,48 +47,116 @@ int get_input(int& cache_size, int& page_list_size) // ok
     return RETURN_OK;
 }
 
-// int get_cache(LFU_cache& LFU_cache_ref, ) 
-//     list::iterator iter = LFU_cache_ref.page_list_.begin();
+int get_cache(LFU_cache& LFU_cache_ref, Page_list& page_list) 
+{
+    list::iterator iter = page_list.page_list_ptr_.begin(); // iter to the start of page list
+    size_t iter_num = 1;
+    size_t used_cache = 0;
+    Cache_elem* found_cache_elem = nullptr;
 
-//     while(iter != LFU_cache_ref.page_list_.end()) // till the end of page list
-//     {
-//         if (!LFU_cache_ref.get_full_status())
-//         {
-//             while (LFU_cache_ref.)
-//             {
-//                 #ifdef DEBUG
-//                     std::cout << "=======Before qsort=======\n";
-//                     LFU_cache_ref.print_LFU();
-//                 #endif
+    while(iter != page_list.page_list_ptr_.end()) // till the end of page list
+    {
+        if (!LFU_cache_ref.get_full_status())
+        {
+            while (iter_num == page_list.page_list_size_ || !LFU_cache_ref.get_full_status())
+            {
+                if(iter != page_list.page_list_ptr_.begin()) // to reduce qsort call at start
+                {
+                    #ifdef DEBUG
+                        std::cout << "=======Before qsort(ITER "<< iter_num << ")=======\n";
+                        LFU_cache_ref.print_LFU();
+                        std::cout << "=======Before qsort(ITER "<< iter_num << ")=======\n";
+                    #endif
 
-//                 qsort(LFU_cache_ref.cache_ptr_, LFU_cache_ref.cache_size_, sizeof(Cache_elem), comparator_cache_val);
+                    qsort(LFU_cache_ref.get_cache_ptr(), LFU_cache_ref.get_cache_size(), sizeof(Cache_elem), comparator_cache_val);
 
-//                 #ifdef DEBUG
-//                     std::cout << "=======After qsort=======\n";
-//                     LFU_cache_ref.print_LFU();
-//                 #endif
+                    #ifdef DEBUG
+                        std::cout << "=======After qsort(ITER "<< iter_num << ")=======\n";
+                        LFU_cache_ref.print_LFU();
+                        std::cout << "=======After qsort(ITER "<< iter_num << ")=======\n";
+                    #endif
+                }
 
-//                 if (LFU_cache_ref.cache_ptr_[i].num_of_calls_ == 0)
-//                 {
-//                     LFU_cache_ref.cache_ptr_[i].elem_value_   = *iter; // the value of current page in the page_list 
-//                     LFU_cache_ref.cache_ptr_[i].num_of_calls_ += 1;    // the number of calls for this cache value in the page_list
-//                     LFU_cache_ref.cache_ptr_[i].num_of_iters_ += 1;     // the number of iterations laying in the cache
-//                 }
-//                 iter++; // from left to right in the page list
-//             }
+                found_cache_elem = (Cache_elem*)bsearch((const void*)(*iter), LFU_cache_ref.get_cache_ptr(), LFU_cache_ref.get_cache_size(), sizeof(Cache_elem), comparator_bsearch);
+                
+                if(found_cache_elem == nullptr && used_cache < LFU_cache_ref.get_cache_size()) // tries to find existing page in the cache
+                {
+                    #ifdef DEBUG
+                        std::cout << "Not found in cache\n";
+                    #endif
 
-//             #ifdef DEBUG
-//                 std::cout << "++++++Cache is full now++++++\n";
-//                 LFU_cache_ref.print_LFU();
-//                 std::cout << "+++++++++++++++++++++++++++++\n";
-//             #endif
+                    #ifdef DEBUG
+                        std::cout << "######### New elem in cache BEFORE #########\n";
+                        LFU_cache_ref.print_LFU();
+                        std::cout << "######### New elem in cache BEFORE #########\n";
+                    #endif
 
-//             LFU_cache_ref.cache_is_full_ = true; // cache is full right now
-//         }
+                    used_cache++;
+                    (LFU_cache_ref.get_cache_ptr())[1].elem_value_   = *iter;
+                    (LFU_cache_ref.get_cache_ptr())[1].num_of_calls_ = 1;
+                    (LFU_cache_ref.get_cache_ptr())[1].num_of_iters_ = 1;
 
-//         iter++; // from left to right in the page list
-//     }
-// }
+                    #ifdef DEBUG
+                        std::cout << "######### New elem in cache AFTER #########\n";
+                        LFU_cache_ref.print_LFU();
+                        std::cout << "######### New elem in cache AFTER #########\n";
+                    #endif
+                }
+                // else if(found_cache_elem == nullptr && used_cache == LFU_cache_ref.get_cache_size())
+                // {
+
+                // }
+                else
+                {
+                    #ifdef DEBUG
+                        std::cout << "Found in cache\n";
+                        std::cout << "######### Found in cache BEFORE #########\n";
+                        LFU_cache_ref.print_LFU();
+                        std::cout << "######### Found in cache BEFORE #########\n";
+                    #endif
+
+                    found_cache_elem->elem_value_   = *iter;
+                    found_cache_elem->num_of_calls_ += 1;
+                    found_cache_elem->num_of_iters_ = iter_num;
+
+                    #ifdef DEBUG
+                        std::cout << "######### Found in cache AFTER #########\n";
+                        LFU_cache_ref.print_LFU();
+                        std::cout << "######### Found in cache AFTER #########\n";
+                    #endif
+                }
+
+                if(used_cache == LFU_cache_ref.get_cache_size()) // if all cache is used
+                {   
+                    LFU_cache_ref.set_full_status(true);
+                }
+
+                // if (LFU_cache_ref.cache_ptr_[i].num_of_calls_ == 0)
+                // {
+                //     LFU_cache_ref.cache_ptr_[i].elem_value_   = *iter; // the value of current page in the page_list 
+                //     LFU_cache_ref.cache_ptr_[i].num_of_calls_ += 1;    // the number of calls for this cache value in the page_list
+                //     LFU_cache_ref.cache_ptr_[i].num_of_iters_ += 1;     // the number of iterations laying in the cache
+                // }
+                iter++; // from left to right in the page list
+                iter_num++;
+            }
+
+            #ifdef DEBUG
+                std::cout << "++++++Cache is full now++++++\n";
+                LFU_cache_ref.print_LFU();
+                std::cout << "+++++++++++++++++++++++++++++\n";
+            #endif
+        }
+        // else
+        // {
+
+
+
+        // }
+
+        iter++; // from left to right in the page list
+    }
+}
 
 // int is_hit()
 // {
@@ -96,50 +164,6 @@ int get_input(int& cache_size, int& page_list_size) // ok
 
 // }
 
-int binary_search(Cache_elem* cache_ptr, const size_t& cache_size, const elem_type& value) // MUST BE TESTED
-{
-    size_t middle = cache_size / 2;
-    size_t start  = 0;
-    size_t end    = cache_size - 1;
-
-    #ifdef DEBUG
-        std::cout << "start : " << start << std::endl;
-        std::cout << "middle : " << middle << std::endl;
-        std::cout << "end : " << end << std::endl;
-    #endif 
-    
-    while (start != end)
-    {
-        if (cache_ptr[middle].elem_value_ ==  value)
-        {
-            return middle;
-        }
-        else if (value > cache_ptr[middle].elem_value_)
-        {
-            start = middle + 1;
-            middle = (end + start) / 2;
-
-            #ifdef DEBUG
-                std::cout << "start : " << start << std::endl;
-                std::cout << "middle : " << middle << std::endl;
-                std::cout << "end : " << end << std::endl;
-            #endif 
-        }
-        else
-        {
-            end = middle - 1;
-            middle = (end + start) / 2;
-
-            #ifdef DEBUG
-                std::cout << "start : " << start << std::endl;
-                std::cout << "middle : " << middle << std::endl;
-                std::cout << "end : " << end << std::endl;
-            #endif 
-        }
-    }
-
-    return VALUE_WAS_NOT_FOUND;
-}
 
 int comparator_cache_val(const void* a_val, const void* b_val) //ok
 {
@@ -155,37 +179,18 @@ int comparator_cache_val(const void* a_val, const void* b_val) //ok
 	return 0;
 }
 
-
-// O(N^2) complexity
-// int bubble_sort(Cache_elem* cache_ptr, const size_t& cache_size)
-// {
-//     int i = 0;
-//     int j = 0;
-//     bool swapped = false;
-//     for (i = 0; i < cache_size - 1; i++) 
-//     {
-//         for (j = 0; j < cache_size - i - 1; j++) 
-//         {
-//             if (cache_ptr[j].elem_value_ > cache_ptr[j + 1].elem_value_) 
-//             {
-//                 std::swap(cache_ptr[j], cache_ptr[j + 1]);
-//                 swapped = true;
-//             }
-//         }
-//         if (swapped == false)
-//         {
-//             break;
-//         }
-//     }
-
-//     #ifdef DEBUG
-//         std::cout << "\n==========Cache data==========\n";
-//         for (size_t i = 0; i < cache_size; i++)
-//         {
-//             std::cout << "cache_ptr_[" << i << "]: " << cache_ptr[i].elem_value_ << " " << cache_ptr[i].num_of_calls_ << std::endl;
-//         }   
-//         std::cout << "==========Cache data==========\n";
-//     #endif
-
-//     return RETURN_OK;
-// }
+int comparator_bsearch(const void* a_val, const void* b_val) // ok
+{
+    if (*((const int*)a_val) < *((const int*)b_val))
+    {
+        return -1;
+    }
+    else if (*((const int*)a_val) > *((const int*)b_val))
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}

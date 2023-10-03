@@ -1,0 +1,3 @@
+cd ./build
+make
+valgrind -s --leak-check=yes --show-leak-kinds=all --track-origins=yes --log-file="../val_logs/valgrind_log.txt" ./main < ../tests/page_list.txt

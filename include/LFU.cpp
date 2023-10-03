@@ -54,3 +54,14 @@ size_t LFU_cache::get_cache_size() const // ok
 {
     return cache_size_;
 }
+
+Cache_elem* LFU_cache::get_cache_ptr() const
+{
+    return cache_ptr_;
+}
+
+void LFU_cache::set_full_status(const bool& val)
+{
+    cache_is_full_ = val;
+}
+
