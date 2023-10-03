@@ -14,7 +14,7 @@ int main()
         return err_code;
     }
 
-    list page_list;
+    Page_list page_list;
     if (err_code = get_page_list(page_list, page_list_size))
     {
         std::cout << "Error code: "  << err_code << std::endl;

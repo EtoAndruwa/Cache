@@ -1,9 +1,9 @@
 #include "LFU.hpp"
  
-void print_page_list(const list& page_list) // OK
+void print_page_list(const Page_list& page_list) // ok
 {
     std::cout << "page_list: ";
-    for (auto const &i: page_list) 
+    for (auto const &i: page_list.page_list_ptr_) 
     {   
         std::cout << i << " ";
     }
@@ -14,7 +14,6 @@ LFU_cache::LFU_cache(const int& cache_size)
 {
     cache_size_     = cache_size;
     cache_is_full_  = false;
-    cache_is_empt_  = true;
 
     cache_ptr_ = new Cache_elem[cache_size_];
     if (cache_ptr_ == nullptr)
@@ -27,9 +26,6 @@ void LFU_cache::print_LFU() const // ok
 {   
     #ifdef DEBUG
         std::cout << "\nLFU cache_size_: " << cache_size_ << std::endl;
-        std::cout << "LFU page_list_size_: " << page_list_size_ << std::endl;
-        std::cout << "LFU page_list_ ";
-        print_page_list(page_list_);
     #endif
    
     std::cout << "==========Cache data==========\n";
@@ -52,11 +48,6 @@ LFU_cache::~LFU_cache() // ok
 bool LFU_cache::get_full_status() const // ok
 {
     return cache_is_full_;
-}
-
-bool LFU_cache::get_empty_status() const // ok
-{
-    return cache_is_empt_;
 }
 
 size_t LFU_cache::get_cache_size() const // ok

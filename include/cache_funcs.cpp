@@ -1,7 +1,7 @@
 #include "LFU.hpp"
 #include "cache_funcs.hpp"
 
-int get_page_list(list& page_list, const int& page_list_size) // OK
+int get_page_list(Page_list& page_list, const int& page_list_size) // ok
 {
     #ifdef DEBUG
         std::cout << "page_list_size = " << page_list_size << std::endl;
@@ -9,16 +9,18 @@ int get_page_list(list& page_list, const int& page_list_size) // OK
 
     elem_type temp = 0;
 
+    page_list.page_list_size_ = page_list_size;
+
     for (size_t i = 0; i < page_list_size; i++)
     {   
         std::cin >> temp;
-        page_list.push_back(temp);
+        page_list.page_list_ptr_.push_back(temp);
     }
 
     return RETURN_OK;
 }
 
-int get_input(int& cache_size, int& page_list_size) // OK
+int get_input(int& cache_size, int& page_list_size) // ok
 {
     std::cin >> cache_size;
     
@@ -45,49 +47,48 @@ int get_input(int& cache_size, int& page_list_size) // OK
     return RETURN_OK;
 }
 
-int get_cache(LFU_cache& LFU_cache_ref)
-{
-    list::iterator iter = LFU_cache_ref.page_list_.begin();
+// int get_cache(LFU_cache& LFU_cache_ref, ) 
+//     list::iterator iter = LFU_cache_ref.page_list_.begin();
 
-    while(iter != LFU_cache_ref.page_list_.end()) // till the end of page list
-    {
-        if (!LFU_cache_ref.cache_is_full_)
-        {
-            while (LFU_cache_ref.)
-            {
-                #ifdef DEBUG
-                    std::cout << "=======Before qsort=======\n";
-                    LFU_cache_ref.print_LFU();
-                #endif
+//     while(iter != LFU_cache_ref.page_list_.end()) // till the end of page list
+//     {
+//         if (!LFU_cache_ref.get_full_status())
+//         {
+//             while (LFU_cache_ref.)
+//             {
+//                 #ifdef DEBUG
+//                     std::cout << "=======Before qsort=======\n";
+//                     LFU_cache_ref.print_LFU();
+//                 #endif
 
-                qsort(LFU_cache_ref.cache_ptr_, LFU_cache_ref.cache_size_, sizeof(Cache_elem), comparator_cache_val);
+//                 qsort(LFU_cache_ref.cache_ptr_, LFU_cache_ref.cache_size_, sizeof(Cache_elem), comparator_cache_val);
 
-                #ifdef DEBUG
-                    std::cout << "=======After qsort=======\n";
-                    LFU_cache_ref.print_LFU();
-                #endif
+//                 #ifdef DEBUG
+//                     std::cout << "=======After qsort=======\n";
+//                     LFU_cache_ref.print_LFU();
+//                 #endif
 
-                if (LFU_cache_ref.cache_ptr_[i].num_of_calls_ == 0)
-                {
-                    LFU_cache_ref.cache_ptr_[i].elem_value_   = *iter; // the value of current page in the page_list 
-                    LFU_cache_ref.cache_ptr_[i].num_of_calls_ += 1;    // the number of calls for this cache value in the page_list
-                    LFU_cache_ref.cache_ptr_[i].num_of_iters_ += 1;     // the number of iterations laying in the cache
-                }
-                iter++; // from left to right in the page list
-            }
+//                 if (LFU_cache_ref.cache_ptr_[i].num_of_calls_ == 0)
+//                 {
+//                     LFU_cache_ref.cache_ptr_[i].elem_value_   = *iter; // the value of current page in the page_list 
+//                     LFU_cache_ref.cache_ptr_[i].num_of_calls_ += 1;    // the number of calls for this cache value in the page_list
+//                     LFU_cache_ref.cache_ptr_[i].num_of_iters_ += 1;     // the number of iterations laying in the cache
+//                 }
+//                 iter++; // from left to right in the page list
+//             }
 
-            #ifdef DEBUG
-                std::cout << "++++++Cache is full now++++++\n";
-                LFU_cache_ref.print_LFU();
-                std::cout << "+++++++++++++++++++++++++++++\n";
-            #endif
+//             #ifdef DEBUG
+//                 std::cout << "++++++Cache is full now++++++\n";
+//                 LFU_cache_ref.print_LFU();
+//                 std::cout << "+++++++++++++++++++++++++++++\n";
+//             #endif
 
-            LFU_cache_ref.cache_is_full_ = true; // cache is full right now
-        }
+//             LFU_cache_ref.cache_is_full_ = true; // cache is full right now
+//         }
 
-        iter++; // from left to right in the page list
-    }
-}
+//         iter++; // from left to right in the page list
+//     }
+// }
 
 // int is_hit()
 // {
@@ -140,7 +141,7 @@ int binary_search(Cache_elem* cache_ptr, const size_t& cache_size, const elem_ty
     return VALUE_WAS_NOT_FOUND;
 }
 
-int comparator_cache_val(const void* a_val, const void* b_val) //OK
+int comparator_cache_val(const void* a_val, const void* b_val) //ok
 {
 	if (((const Cache_elem*)a_val)->elem_value_ > ((const Cache_elem*)b_val)->elem_value_)
     {
