@@ -23,7 +23,7 @@ int main()
 
     print_page_list(page_list);
 
-    LFU_cache cache(cache_size, page_list_size, page_list);
+    LFU_cache cache(cache_size);
     cache.print_LFU();
 
     get_cache(cache);
