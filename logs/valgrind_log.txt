@@ -1,539 +1,231 @@
-==33652== Memcheck, a memory error detector
-==33652== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==33652== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==33652== Command: ./main
-==33652== Parent PID: 33623
-==33652== 
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A653: comparator_bsearch_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFC6D8: bsearch (stdlib-bsearch.h:33)
-==33652==    by 0x10A2DB: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A662: comparator_bsearch_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFC6D8: bsearch (stdlib-bsearch.h:33)
-==33652==    by 0x10A2DB: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5BB: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5BB: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5BB: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5BB: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5BB: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5BB: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5BB: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== 
-==33652== HEAP SUMMARY:
-==33652==     in use at exit: 0 bytes in 0 blocks
-==33652==   total heap usage: 4,778 allocs, 4,778 frees, 192,640 bytes allocated
-==33652== 
-==33652== All heap blocks were freed -- no leaks are possible
-==33652== 
-==33652== ERROR SUMMARY: 1276 errors from 16 contexts (suppressed: 0 from 0)
-==33652== 
-==33652== 21 errors in context 1 of 16:
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A662: comparator_bsearch_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFC6D8: bsearch (stdlib-bsearch.h:33)
-==33652==    by 0x10A2DB: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== 
-==33652== 21 errors in context 2 of 16:
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A653: comparator_bsearch_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFC6D8: bsearch (stdlib-bsearch.h:33)
-==33652==    by 0x10A2DB: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== 
-==33652== 40 errors in context 3 of 16:
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== 
-==33652== 40 errors in context 4 of 16:
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5BB: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== 
-==33652== 42 errors in context 5 of 16:
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== 
-==33652== 42 errors in context 6 of 16:
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5BB: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== 
-==33652== 44 errors in context 7 of 16:
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== 
-==33652== 66 errors in context 8 of 16:
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== 
-==33652== 66 errors in context 9 of 16:
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5BB: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== 
-==33652== 71 errors in context 10 of 16:
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== 
-==33652== 71 errors in context 11 of 16:
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5BB: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== 
-==33652== 91 errors in context 12 of 16:
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== 
-==33652== 114 errors in context 13 of 16:
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5BB: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== 
-==33652== 156 errors in context 14 of 16:
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5BB: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== 
-==33652== 168 errors in context 15 of 16:
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== 
-==33652== 223 errors in context 16 of 16:
-==33652== Conditional jump or move depends on uninitialised value(s)
-==33652==    at 0x10A5BB: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
-==33652==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
-==33652==    by 0x4AFDA55: qsort_r (msort.c:296)
-==33652==    by 0x10A291: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097C2: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==  Uninitialised value was created by a heap allocation
-==33652==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==33652==    by 0x10B000: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
-==33652== 
-==33652== ERROR SUMMARY: 1276 errors from 16 contexts (suppressed: 0 from 0)
+==34099== Memcheck, a memory error detector
+==34099== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==34099== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==34099== Command: ./main
+==34099== Parent PID: 34078
+==34099== 
+==34099== Conditional jump or move depends on uninitialised value(s)
+==34099==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
+==34099==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
+==34099==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFDA55: qsort_r (msort.c:296)
+==34099==    by 0x10A37F: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==  Uninitialised value was created by a heap allocation
+==34099==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34099==    by 0x10AFF4: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x10978A: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099== 
+==34099== Conditional jump or move depends on uninitialised value(s)
+==34099==    at 0x10A5ED: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
+==34099==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
+==34099==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFDA55: qsort_r (msort.c:296)
+==34099==    by 0x10A37F: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==  Uninitialised value was created by a heap allocation
+==34099==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34099==    by 0x10AFF4: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x10978A: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099== 
+==34099== Conditional jump or move depends on uninitialised value(s)
+==34099==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
+==34099==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
+==34099==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFDA55: qsort_r (msort.c:296)
+==34099==    by 0x10A37F: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==  Uninitialised value was created by a heap allocation
+==34099==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34099==    by 0x10AFF4: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x10978A: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099== 
+==34099== Conditional jump or move depends on uninitialised value(s)
+==34099==    at 0x10A5ED: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
+==34099==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
+==34099==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFDA55: qsort_r (msort.c:296)
+==34099==    by 0x10A37F: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==  Uninitialised value was created by a heap allocation
+==34099==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34099==    by 0x10AFF4: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x10978A: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099== 
+==34099== Conditional jump or move depends on uninitialised value(s)
+==34099==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
+==34099==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFDA55: qsort_r (msort.c:296)
+==34099==    by 0x10A37F: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==  Uninitialised value was created by a heap allocation
+==34099==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34099==    by 0x10AFF4: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x10978A: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099== 
+==34099== Conditional jump or move depends on uninitialised value(s)
+==34099==    at 0x10A5ED: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
+==34099==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFDA55: qsort_r (msort.c:296)
+==34099==    by 0x10A37F: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==  Uninitialised value was created by a heap allocation
+==34099==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34099==    by 0x10AFF4: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x10978A: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099== 
+==34099== Conditional jump or move depends on uninitialised value(s)
+==34099==    at 0x10A66C: comparator_bsearch_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x4AFC6D8: bsearch (stdlib-bsearch.h:33)
+==34099==    by 0x10A3B0: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==  Uninitialised value was created by a heap allocation
+==34099==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34099==    by 0x10AFF4: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x10978A: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099== 
+==34099== Conditional jump or move depends on uninitialised value(s)
+==34099==    at 0x10A67B: comparator_bsearch_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x4AFC6D8: bsearch (stdlib-bsearch.h:33)
+==34099==    by 0x10A3B0: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==  Uninitialised value was created by a heap allocation
+==34099==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34099==    by 0x10AFF4: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x10978A: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099== 
+==34099== 
+==34099== HEAP SUMMARY:
+==34099==     in use at exit: 0 bytes in 0 blocks
+==34099==   total heap usage: 2,004 allocs, 2,004 frees, 125,872 bytes allocated
+==34099== 
+==34099== All heap blocks were freed -- no leaks are possible
+==34099== 
+==34099== ERROR SUMMARY: 30 errors from 8 contexts (suppressed: 0 from 0)
+==34099== 
+==34099== 1 errors in context 1 of 8:
+==34099== Conditional jump or move depends on uninitialised value(s)
+==34099==    at 0x10A5ED: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
+==34099==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
+==34099==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFDA55: qsort_r (msort.c:296)
+==34099==    by 0x10A37F: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==  Uninitialised value was created by a heap allocation
+==34099==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34099==    by 0x10AFF4: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x10978A: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099== 
+==34099== 
+==34099== 3 errors in context 2 of 8:
+==34099== Conditional jump or move depends on uninitialised value(s)
+==34099==    at 0x10A5ED: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
+==34099==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
+==34099==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFDA55: qsort_r (msort.c:296)
+==34099==    by 0x10A37F: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==  Uninitialised value was created by a heap allocation
+==34099==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34099==    by 0x10AFF4: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x10978A: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099== 
+==34099== 
+==34099== 3 errors in context 3 of 8:
+==34099== Conditional jump or move depends on uninitialised value(s)
+==34099==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
+==34099==    by 0x4AFD3C1: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFD3C1: msort_with_tmp.part.0 (msort.c:53)
+==34099==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFDA55: qsort_r (msort.c:296)
+==34099==    by 0x10A37F: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==  Uninitialised value was created by a heap allocation
+==34099==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34099==    by 0x10AFF4: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x10978A: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099== 
+==34099== 
+==34099== 3 errors in context 4 of 8:
+==34099== Conditional jump or move depends on uninitialised value(s)
+==34099==    at 0x10A67B: comparator_bsearch_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x4AFC6D8: bsearch (stdlib-bsearch.h:33)
+==34099==    by 0x10A3B0: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==  Uninitialised value was created by a heap allocation
+==34099==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34099==    by 0x10AFF4: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x10978A: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099== 
+==34099== 
+==34099== 3 errors in context 5 of 8:
+==34099== Conditional jump or move depends on uninitialised value(s)
+==34099==    at 0x10A66C: comparator_bsearch_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x4AFC6D8: bsearch (stdlib-bsearch.h:33)
+==34099==    by 0x10A3B0: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==  Uninitialised value was created by a heap allocation
+==34099==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34099==    by 0x10AFF4: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x10978A: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099== 
+==34099== 
+==34099== 4 errors in context 6 of 8:
+==34099== Conditional jump or move depends on uninitialised value(s)
+==34099==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
+==34099==    by 0x4AFD3A4: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFD3A4: msort_with_tmp.part.0 (msort.c:52)
+==34099==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFDA55: qsort_r (msort.c:296)
+==34099==    by 0x10A37F: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==  Uninitialised value was created by a heap allocation
+==34099==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34099==    by 0x10AFF4: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x10978A: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099== 
+==34099== 
+==34099== 5 errors in context 7 of 8:
+==34099== Conditional jump or move depends on uninitialised value(s)
+==34099==    at 0x10A5ED: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
+==34099==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFDA55: qsort_r (msort.c:296)
+==34099==    by 0x10A37F: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==  Uninitialised value was created by a heap allocation
+==34099==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34099==    by 0x10AFF4: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x10978A: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099== 
+==34099== 
+==34099== 8 errors in context 8 of 8:
+==34099== Conditional jump or move depends on uninitialised value(s)
+==34099==    at 0x10A5D4: comparator_cache_val(void const*, void const*) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x4AFD5B7: msort_with_tmp.part.0 (msort.c:141)
+==34099==    by 0x4AFDA55: msort_with_tmp (msort.c:44)
+==34099==    by 0x4AFDA55: qsort_r (msort.c:296)
+==34099==    by 0x10A37F: get_cache(LFU_cache&, Page_list&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x1097A6: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==  Uninitialised value was created by a heap allocation
+==34099==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34099==    by 0x10AFF4: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099==    by 0x10978A: main (in /home/etoandruwa/Desktop/Hash/build/main)
+==34099== 
+==34099== ERROR SUMMARY: 30 errors from 8 contexts (suppressed: 0 from 0)

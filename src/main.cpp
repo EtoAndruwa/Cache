@@ -28,16 +28,14 @@ int main()
 
     LFU_cache cache(cache_size);
 
-    clock_t start, end;
-    start = clock();
+    auto start = std::chrono::high_resolution_clock::now();
     
     get_cache(cache, page_list);
 
-    end = clock();
+    auto end = std::chrono::high_resolution_clock::now();
 
-    double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
-    std::cout << "Time taken by program is : " << std::fixed << time_taken << std::setprecision(5);
-    std::cout << " sec " << std::endl;
+    std::chrono::duration<double> duration = end - start;
+    std::cout << "Execution time: " << duration.count() << " seconds." << std::endl;
 
 
     cache.print_LFU();
