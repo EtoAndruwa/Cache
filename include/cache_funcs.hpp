@@ -22,4 +22,7 @@ int get_cache(LFU_cache& LFU_cache_ref, Page_list& page_list);
 int comparator_bsearch_val(const void* a_val, const void* b_val);
 int comparator_cache_freq(const void* a_val, const void* b_val);
 int comparator_bsearch_freq(const void* a_val, const void* b_val); // ok;
+int get_cache_old(LFU_cache& LFU_cache_ref, Page_list& page_list);
+
+void clear_cache(LFU_cache& LFU_cache_ref);
 

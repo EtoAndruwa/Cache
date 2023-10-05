@@ -20,6 +20,18 @@ LFU_cache::LFU_cache(const int& cache_size)
     {
         std::cout << "LFU cache_ptr_ is nullptr" << std::endl;
     }
+
+    array_of_ptrs_ = new Cache_elem*[cache_size_];
+    if (array_of_ptrs_ == nullptr)
+    {
+        std::cout << "LFU array_of_ptrs_ is nullptr" << std::endl;
+    }
+
+    for (size_t i = 0; i < cache_size; i++)
+    {
+        array_of_ptrs_[i] = &(cache_ptr_[i]);
+    }
+
 }
 
 void LFU_cache::print_LFU() const // ok
@@ -34,6 +46,14 @@ void LFU_cache::print_LFU() const // ok
         std::cout << "(" << &(cache_ptr_[i]) << ")cache_ptr_[" << i << "]: elem_value_ = " << cache_ptr_[i].elem_value_ << " num_of_calls_ = " << cache_ptr_[i].num_of_calls_ << " num_of_iter_ = " << cache_ptr_[i].num_of_iter_ << std::endl;
     }   
     std::cout << "==========Cache data==========\n\n";
+
+    std::cout << "==========Pointers array==========\n";
+    for (size_t i = 0; i < cache_size_; i++)
+    {
+        std::cout << "cache_ptr_[" << i << "] = " << array_of_ptrs_[i] << std::endl;
+    }   
+    std::cout << "==========Pointers array==========\n\n";
+
 }
 
 LFU_cache::~LFU_cache() // ok
@@ -65,3 +85,7 @@ void LFU_cache::set_full_status(const bool& val)
     cache_is_full_ = val;
 }
 
+Cache_elem** LFU_cache::get_ptr_to_arr() const
+{
+    return array_of_ptrs_;
+}

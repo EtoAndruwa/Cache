@@ -22,18 +22,12 @@ int main()
         return err_code;
     }
 
-    // print_page_list(page_list);
-
     LFU_cache cache(cache_size);
 
-    // auto start = std::chrono::high_resolution_clock::now();
-    
     get_cache(cache, page_list);
+    clear_cache(cache);
+    get_cache_old(cache, page_list);
 
-    // auto end = std::chrono::high_resolution_clock::now();
-
-    // std::chrono::duration<double> duration = end - start;
-    // std::cout << "Execution time: " << duration.count() << " seconds." << std::endl;
 
 
     cache.print_LFU();

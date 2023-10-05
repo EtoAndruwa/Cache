@@ -7,7 +7,8 @@
 #include <cstdlib> 
 #include <valgrind/memcheck.h>
 
-#define DEBUG
+
+// #define DEBUG
 
 typedef int elem_type;             // The type of element for which LFU cache was made
 typedef std::list<elem_type> list; // std::list typedef
@@ -49,11 +50,13 @@ class LFU_cache
         void set_full_status(const bool& val);  // get the value of cache_is_full_
         size_t get_cache_size() const;          // gets tha value of cache_size_
         Cache_elem* get_cache_ptr() const;      // get the pointer to the array of Cache_elem's
+        Cache_elem** get_ptr_to_arr() const;      
 
     private:
         size_t cache_size_;             // stores the cache size
         bool cache_is_full_;            // stores the cache flag of being full
         Cache_elem* cache_ptr_;         // stores the pointer ot the array of Cache_elem's
+        Cache_elem** array_of_ptrs_;         
 };  
 
 class Page_list

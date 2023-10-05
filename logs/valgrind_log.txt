@@ -1,14 +1,24 @@
-==46198== Memcheck, a memory error detector
-==46198== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==46198== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==46198== Command: ./main
-==46198== Parent PID: 46178
-==46198== 
-==46198== 
-==46198== HEAP SUMMARY:
-==46198==     in use at exit: 0 bytes in 0 blocks
-==46198==   total heap usage: 4,778 allocs, 4,778 frees, 192,760 bytes allocated
-==46198== 
-==46198== All heap blocks were freed -- no leaks are possible
-==46198== 
-==46198== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==20271== Memcheck, a memory error detector
+==20271== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==20271== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==20271== Command: ./main
+==20271== Parent PID: 20253
+==20271== 
+==20271== 
+==20271== HEAP SUMMARY:
+==20271==     in use at exit: 16 bytes in 1 blocks
+==20271==   total heap usage: 13 allocs, 12 frees, 78,056 bytes allocated
+==20271== 
+==20271== 16 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==20271==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==20271==    by 0x10B0D6: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==20271==    by 0x10959A: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==20271== 
+==20271== LEAK SUMMARY:
+==20271==    definitely lost: 16 bytes in 1 blocks
+==20271==    indirectly lost: 0 bytes in 0 blocks
+==20271==      possibly lost: 0 bytes in 0 blocks
+==20271==    still reachable: 0 bytes in 0 blocks
+==20271==         suppressed: 0 bytes in 0 blocks
+==20271== 
+==20271== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
