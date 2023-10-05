@@ -1,5 +1,6 @@
 #include "LFU.hpp"
 #include "cache_funcs.hpp"
+#include "comparators.hpp"
 
 int get_page_list(Page_list& page_list, const int& page_list_size) // ok
 {
@@ -46,149 +47,87 @@ int get_cache(LFU_cache& LFU_cache_ref, Page_list& page_list)
     Cache_elem* found_cache_elem = nullptr;
     Cache_elem constyl_elem[1] = {0,0,0};
     size_t hits = 0;
+    Cache_elem* twin_freq_cache_elem = nullptr;
+    Cache_elem* result_cache_ptr = nullptr;
 
+
+    Cache_elem* free_cache_ptr = cache_ptr + cache_size - 1;
+    const Cache_elem* end_cache_ptr = cache_ptr + cache_size;
+
+    // std::cout << "N of blocks " <<   (end_cache_ptr - free_cache_ptr) << std::endl;
+
+    // #ifdef DEBUG
+    //     std::cout << "\n\n######### BEFORE ALL #########\n";
+    //     LFU_cache_ref.print_LFU();
+    //     std::cout << "######### BEFORE ALL #########\n";
+    // #endif
+
+    const size_t sizeof_cache_elem = sizeof(Cache_elem);
+    size_t cache_block_num = 0;
+
+
+    auto start = std::chrono::high_resolution_clock::now();
 
     while (iter_num != page_list.page_list_size_ + 1)
     {
-        qsort(cache_ptr, cache_size, sizeof(Cache_elem), comparator_cache_val);
+        cache_block_num = (end_cache_ptr - free_cache_ptr) - 1;
 
-        /** 
-         * Costyl below
-        */
+        qsort(free_cache_ptr + 1, cache_block_num, sizeof_cache_elem, comparator_cache_val);
+
         constyl_elem[0].elem_value_ = *iter; // costyl
-        found_cache_elem = (Cache_elem*)bsearch((const void*)(constyl_elem), cache_ptr, cache_size, sizeof(Cache_elem), comparator_bsearch_val);
+        found_cache_elem = (Cache_elem*)bsearch((const void*)(constyl_elem), free_cache_ptr + 1, cache_block_num, sizeof_cache_elem, comparator_bsearch_val);
         
-        if(found_cache_elem == nullptr && used_cache < cache_size) // tries to find existing page in the cache
-        {
-            used_cache++;
-            cache_ptr->elem_value_   = *iter;
-            cache_ptr->num_of_calls_ = 1;
-            cache_ptr->num_of_iter_  = iter_num;
-
-            #ifdef DEBUG
-                std::cout << "\n\n######### New elem in cache AFTER #########\n";
-                LFU_cache_ref.print_LFU();
-                std::cout << "######### New elem in cache AFTER #########\n";
-            #endif
-        }
-        else if(found_cache_elem == nullptr && used_cache == cache_size)
-        {
-            qsort(cache_ptr, cache_size, sizeof(Cache_elem), comparator_cache_freq); // now sorted for frequency
-
-            if(cache_size == 1)
-            {
-                cache_ptr->elem_value_   = *iter;
-                cache_ptr->num_of_calls_ = 1;
-                cache_ptr->num_of_iter_  = iter_num;
-            }
-            else
-            {
-                Cache_elem* twin_freq_cache_elem = cache_ptr + 1;
-
-                if(twin_freq_cache_elem->num_of_calls_ == cache_ptr->num_of_calls_)
-                {
-                    if(twin_freq_cache_elem->num_of_iter_ > cache_ptr->num_of_iter_)
-                    {
-                        cache_ptr->elem_value_   = *iter;
-                        cache_ptr->num_of_calls_ = 1;
-                        cache_ptr->num_of_iter_  = iter_num;
-                    }
-                    else
-                    {
-                        twin_freq_cache_elem->elem_value_   = *iter;
-                        twin_freq_cache_elem->num_of_calls_ = 1;
-                        twin_freq_cache_elem->num_of_iter_  = iter_num;
-                    }
-                }
-                else
-                {
-                    cache_ptr->elem_value_   = *iter;
-                    cache_ptr->num_of_calls_ = 1;
-                    cache_ptr->num_of_iter_  = iter_num;
-                }
-            }
-        }
-        else
+        if(found_cache_elem != nullptr)
         {
             found_cache_elem->elem_value_   = *iter;
             found_cache_elem->num_of_calls_ += 1;
             hits++;
 
-            #ifdef DEBUG
-                std::cout << "\n\n######### Found in cache AFTER #########\n";
-                LFU_cache_ref.print_LFU();
-                std::cout << "######### Found in cache AFTER #########\n";
-            #endif
+            iter++; // from left to right in the page list
+            iter_num++;
+            continue;
         }
 
-        if(used_cache == cache_size) // if all cache is used
-        {   
-            LFU_cache_ref.set_full_status(true);
+        if(used_cache != cache_size) 
+        {
+            used_cache++;
+            free_cache_ptr->elem_value_   = *iter;
+            free_cache_ptr->num_of_calls_ = 1;
+            free_cache_ptr->num_of_iter_  = iter_num;
+            free_cache_ptr--;
+        }
+        else
+        {
+            qsort(cache_ptr, cache_size, sizeof_cache_elem, comparator_cache_freq); // now sorted by frequency
+
+            twin_freq_cache_elem = cache_ptr + 1;
+
+            if(twin_freq_cache_elem->num_of_calls_ != cache_ptr->num_of_calls_ || twin_freq_cache_elem == end_cache_ptr)
+            {
+                result_cache_ptr = cache_ptr;
+            }
+            else
+            {
+                result_cache_ptr = twin_freq_cache_elem;
+
+                if(twin_freq_cache_elem->num_of_iter_ > cache_ptr->num_of_iter_)
+                {
+                    result_cache_ptr = cache_ptr;
+                }
+            }
+
+            result_cache_ptr->elem_value_   = *iter;
+            result_cache_ptr->num_of_calls_ = 1;
+            result_cache_ptr->num_of_iter_  = iter_num;
         }
 
         iter++; // from left to right in the page list
         iter_num++;
     }
+
+    auto end = std::chrono::high_resolution_clock::now();
+
+    std::chrono::duration<double> duration = end - start;
+    std::cout << "Execution time: " << duration.count() << " seconds." << std::endl;
 }
 
-int comparator_cache_val(const void* a_val, const void* b_val) //ok
-{
-	if (((const Cache_elem*)a_val)->elem_value_ > ((const Cache_elem*)b_val)->elem_value_)
-    {
-        return 1;
-    }
-	else if (((const Cache_elem*)a_val)->elem_value_ < ((const Cache_elem*)b_val)->elem_value_)
-    {
-        return -1;
-    }
-
-	return 0;
-}
-
-int comparator_cache_freq(const void* a_val, const void* b_val) //ok
-{
-	if (((const Cache_elem*)a_val)->num_of_calls_ > ((const Cache_elem*)b_val)->num_of_calls_)
-    {
-        return 1;
-    }
-	else if (((const Cache_elem*)a_val)->num_of_calls_ < ((const Cache_elem*)b_val)->num_of_calls_)
-    {
-        return -1;
-    }
-
-	return 0;
-}
-
-int comparator_bsearch_val(const void* a_val, const void* b_val) // ok
-{
-    elem_type a_elem = ((Cache_elem*)a_val)->elem_value_;
-    elem_type b_elem = ((Cache_elem*)b_val)->elem_value_;
-
-    if (a_elem < b_elem)
-    {
-        return -1;
-    }
-    else if (a_elem > b_elem)
-    {
-        return 1;
-    }
-    
-    return 0;
-}
-
-int comparator_bsearch_freq(const void* a_val, const void* b_val) // ok
-{
-    elem_type a_elem = ((Cache_elem*)a_val)->num_of_calls_;
-    elem_type b_elem = ((Cache_elem*)b_val)->num_of_calls_;
-
-    if (a_elem < b_elem)
-    {
-        return -1;
-    }
-    else if (a_elem > b_elem)
-    {
-        return 1;
-    }
-        
-    return 0;
-}

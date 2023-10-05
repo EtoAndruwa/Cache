@@ -1,8 +1,6 @@
 #include "LFU.hpp"
 #include "cache_funcs.hpp"
-
-#include <chrono>
-using namespace std::chrono;
+#include "tester.hpp"
 
 int main()
 {   
@@ -28,14 +26,14 @@ int main()
 
     LFU_cache cache(cache_size);
 
-    auto start = std::chrono::high_resolution_clock::now();
+    // auto start = std::chrono::high_resolution_clock::now();
     
     get_cache(cache, page_list);
 
-    auto end = std::chrono::high_resolution_clock::now();
+    // auto end = std::chrono::high_resolution_clock::now();
 
-    std::chrono::duration<double> duration = end - start;
-    std::cout << "Execution time: " << duration.count() << " seconds." << std::endl;
+    // std::chrono::duration<double> duration = end - start;
+    // std::cout << "Execution time: " << duration.count() << " seconds." << std::endl;
 
 
     cache.print_LFU();

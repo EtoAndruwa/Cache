@@ -7,7 +7,7 @@
 #include <cstdlib> 
 #include <valgrind/memcheck.h>
 
-// #define DEBUG
+#define DEBUG
 
 typedef int elem_type;             // The type of element for which LFU cache was made
 typedef std::list<elem_type> list; // std::list typedef

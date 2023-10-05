@@ -31,7 +31,7 @@ void LFU_cache::print_LFU() const // ok
     std::cout << "==========Cache data==========\n";
     for (size_t i = 0; i < cache_size_; i++)
     {
-        std::cout << "cache_ptr_[" << i << "]: elem_value_ = " << cache_ptr_[i].elem_value_ << " num_of_calls_ = " << cache_ptr_[i].num_of_calls_ << " num_of_iter_ = " << cache_ptr_[i].num_of_iter_ << std::endl;
+        std::cout << "(" << &(cache_ptr_[i]) << ")cache_ptr_[" << i << "]: elem_value_ = " << cache_ptr_[i].elem_value_ << " num_of_calls_ = " << cache_ptr_[i].num_of_calls_ << " num_of_iter_ = " << cache_ptr_[i].num_of_iter_ << std::endl;
     }   
     std::cout << "==========Cache data==========\n\n";
 }
