@@ -1,6 +1,30 @@
 ========== TEST 0 ==========
+(NEW)	 hits: 2 	 time taken: 0.006679
+(OLD)	 hits: 2 	 time taken: 0.003135030
 ========== TEST 0 ==========
+
 ========== TEST 1 ==========
+(NEW)	 hits: 416 	 time taken: 0.020326465
+(OLD)	 hits: 416 	 time taken: 0.032849181
 ========== TEST 1 ==========
+
 ========== TEST 2 ==========
+(NEW)	 hits: 118 	 time taken: 0.001983722
+(OLD)	 hits: 118 	 time taken: 0.002269018
 ========== TEST 2 ==========
+
+========== TEST 3 ==========
+(NEW)	 hits: 191 	 time taken: 0.006334674
+(OLD)	 hits: 191 	 time taken: 0.011097439
+========== TEST 3 ==========
+
+========== TEST 4 ==========
+(NEW)	 hits: 159 	 time taken: 0.000906583
+(OLD)	 hits: 159 	 time taken: 0.001025927
+========== TEST 4 ==========
+
+========== TEST 5 ==========
+(NEW)	 hits: 1012 	 time taken: 0.058389085
+(OLD)	 hits: 1012 	 time taken: 0.102070095
+========== TEST 5 ==========
+

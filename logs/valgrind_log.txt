@@ -1,25 +1,25 @@
-==19326== Memcheck, a memory error detector
-==19326== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==19326== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
-==19326== Command: ./main 2
-==19326== Parent PID: 19275
-==19326== 
-==19326== 
-==19326== HEAP SUMMARY:
-==19326==     in use at exit: 176 bytes in 3 blocks
-==19326==   total heap usage: 1,028 allocs, 1,025 frees, 133,140 bytes allocated
-==19326== 
-==19326== 176 bytes in 3 blocks are definitely lost in loss record 1 of 1
-==19326==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==19326==    by 0x10D6BC: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
-==19326==    by 0x10AF18: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
-==19326==    by 0x10A700: main (in /home/etoandruwa/Desktop/Cache/build/main)
-==19326== 
-==19326== LEAK SUMMARY:
-==19326==    definitely lost: 176 bytes in 3 blocks
-==19326==    indirectly lost: 0 bytes in 0 blocks
-==19326==      possibly lost: 0 bytes in 0 blocks
-==19326==    still reachable: 0 bytes in 0 blocks
-==19326==         suppressed: 0 bytes in 0 blocks
-==19326== 
-==19326== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==22882== Memcheck, a memory error detector
+==22882== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==22882== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==22882== Command: ./main 5
+==22882== Parent PID: 22831
+==22882== 
+==22882== 
+==22882== HEAP SUMMARY:
+==22882==     in use at exit: 480 bytes in 6 blocks
+==22882==   total heap usage: 3,243 allocs, 3,237 frees, 212,785 bytes allocated
+==22882== 
+==22882== 480 bytes in 6 blocks are definitely lost in loss record 1 of 1
+==22882==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==22882==    by 0x10D772: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==22882==    by 0x10AF4B: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==22882==    by 0x10A730: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==22882== 
+==22882== LEAK SUMMARY:
+==22882==    definitely lost: 480 bytes in 6 blocks
+==22882==    indirectly lost: 0 bytes in 0 blocks
+==22882==      possibly lost: 0 bytes in 0 blocks
+==22882==    still reachable: 0 bytes in 0 blocks
+==22882==         suppressed: 0 bytes in 0 blocks
+==22882== 
+==22882== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

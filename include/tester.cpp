@@ -19,7 +19,7 @@ int test_cache(char* num_of_test_ptr)
 
     if(num_of_test > 0)
     {
-        std::cout << num_of_test << "tests will be run\n";
+        std::cout << num_of_test << " tests will be run\n";
 
         for(size_t test_num = 0; test_num <= num_of_test; test_num++)
         {
@@ -58,30 +58,28 @@ int test_cache(char* num_of_test_ptr)
 
             LFU_cache cache(cache_size);
 
-            int num_of_hits = 0;
             print_test_heading(test_log_file, test_num);
+    
+            print_test_data(test_log_file, cache, page_list, get_cache, "(NEW)");
+            clear_cache(cache);
 
-
-            // print_test_data(test_num, num_of_hits, );
+            print_test_data(test_log_file, cache, page_list, get_cache_old, "(OLD)");
 
             print_test_ending(test_log_file, test_num);
 
             test_file.close(); // closes the file 
         }
 
-        return RETURN_OK;
+        test_log_file.close();
     }
     else
-    {        
-        std::cout << "No test ran\n";
-        return RETURN_OK;
+    {   
+        std::cout << "No test were ran\n";
+        test_log_file << "No No test were ran\n";
     }
-}
 
-
-void print_test_data(std::ofstream& file_ref, const int& num_of_hits, const double& time_taken, const char* const func_name)
-{   
-
+    test_log_file.close();
+    return RETURN_OK;
 }
 
 void print_test_heading(std::ofstream& file_ref, const int& test_num)
@@ -91,6 +89,19 @@ void print_test_heading(std::ofstream& file_ref, const int& test_num)
 
 void print_test_ending(std::ofstream& file_ref, const int& test_num)
 {
-    file_ref << "========== TEST " << test_num << " ==========\n";
+    file_ref << "========== TEST " << test_num << " ==========\n\n";
+}
+
+void print_test_data(std::ofstream& file_ref, LFU_cache& LFU_cache_ref, Page_list& page_list, int (*func)(LFU_cache&, Page_list&), const char* const func_name)
+{
+    auto start = std::chrono::high_resolution_clock::now();
+
+    int num_of_hits = func(LFU_cache_ref, page_list);
+
+    auto end = std::chrono::high_resolution_clock::now();
+    double time_taken = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
+    time_taken *= 1e-9;
+    
+    file_ref << func_name << "\t hits: " << num_of_hits << " \t time taken: " << std::fixed << time_taken << std::setprecision(9) << std::endl; 
 }
 

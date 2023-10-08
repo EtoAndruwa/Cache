@@ -53,8 +53,6 @@ int get_cache(LFU_cache& LFU_cache_ref, Page_list& page_list)
     const size_t size_of_cache_ptr = sizeof(Cache_elem*);
     size_t cache_block_num = 0;
 
-    auto start = std::chrono::high_resolution_clock::now();
-
     while (iter_num != page_list.page_list_size_ + 1)
     {
         cache_block_num = (end_cache_ptr - free_cache_ptr) - 1;
@@ -159,10 +157,7 @@ int get_cache(LFU_cache& LFU_cache_ref, Page_list& page_list)
         iter_num++;
     }
 
-    auto end = std::chrono::high_resolution_clock::now();
-
-    std::chrono::duration<double> duration = end - start;
-    std::cout << "(NEW CACHE)Execution time: " << duration.count() << " seconds. Hits: "<< hits << std::endl;
+    return hits;
 }
 
 int get_cache_old(LFU_cache& LFU_cache_ref, Page_list& page_list) 
@@ -193,7 +188,6 @@ int get_cache_old(LFU_cache& LFU_cache_ref, Page_list& page_list)
 
     const size_t sizeof_cache_elem = sizeof(Cache_elem);
     size_t cache_block_num = 0;
-
 
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -255,9 +249,7 @@ int get_cache_old(LFU_cache& LFU_cache_ref, Page_list& page_list)
         iter_num++;
     }
 
-    auto end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> duration = end - start;
-    std::cout << "(OLD CACHE)Execution time: " << duration.count() << " seconds. Hits: "<< hits << std::endl;
+    return hits;
 }
 
 void clear_cache(LFU_cache& LFU_cache_ref)
@@ -266,9 +258,9 @@ void clear_cache(LFU_cache& LFU_cache_ref)
 
     for (size_t i = 0; i < LFU_cache_ref.get_cache_size(); i++)
     {
-        cache_ptr[i].elem_value_ = 0;
+        cache_ptr[i].elem_value_   = 0;
         cache_ptr[i].num_of_calls_ = 0;
-        cache_ptr[i].num_of_iter_ = 0;
+        cache_ptr[i].num_of_iter_  = 0;
     }
 }
 
