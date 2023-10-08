@@ -4,6 +4,10 @@ cmake_minimum_required(VERSION 3.10) # Проверка версии CMake.
 
 project(Hash) # Название проекта
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED On)
+set(CMAKE_CXX_EXTENSIONS Off)
+
 set(SOURCE_EXE ./src/main.cpp) # Установка переменной со списком исходников
 
 include_directories(include) # Расположение заголовочных файлов

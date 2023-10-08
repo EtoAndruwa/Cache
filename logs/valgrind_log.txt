@@ -1,24 +1,350 @@
-==20271== Memcheck, a memory error detector
-==20271== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==20271== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
-==20271== Command: ./main
-==20271== Parent PID: 20253
-==20271== 
-==20271== 
-==20271== HEAP SUMMARY:
-==20271==     in use at exit: 16 bytes in 1 blocks
-==20271==   total heap usage: 13 allocs, 12 frees, 78,056 bytes allocated
-==20271== 
-==20271== 16 bytes in 1 blocks are definitely lost in loss record 1 of 1
-==20271==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==20271==    by 0x10B0D6: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
-==20271==    by 0x10959A: main (in /home/etoandruwa/Desktop/Cache/build/main)
-==20271== 
-==20271== LEAK SUMMARY:
-==20271==    definitely lost: 16 bytes in 1 blocks
-==20271==    indirectly lost: 0 bytes in 0 blocks
-==20271==      possibly lost: 0 bytes in 0 blocks
-==20271==    still reachable: 0 bytes in 0 blocks
-==20271==         suppressed: 0 bytes in 0 blocks
-==20271== 
-==20271== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==15260== Memcheck, a memory error detector
+==15260== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==15260== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==15260== Command: ./main 2
+==15260== Parent PID: 15241
+==15260== 
+==15260== Conditional jump or move depends on uninitialised value(s)
+==15260==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D4AC: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== Use of uninitialised value of size 8
+==15260==    at 0x498723B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D4AC: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== Conditional jump or move depends on uninitialised value(s)
+==15260==    at 0x498724D: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D4AC: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== Conditional jump or move depends on uninitialised value(s)
+==15260==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D4AC: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== Conditional jump or move depends on uninitialised value(s)
+==15260==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D4EC: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== Use of uninitialised value of size 8
+==15260==    at 0x498723B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D4EC: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== Conditional jump or move depends on uninitialised value(s)
+==15260==    at 0x498724D: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D4EC: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== Conditional jump or move depends on uninitialised value(s)
+==15260==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D4EC: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== Conditional jump or move depends on uninitialised value(s)
+==15260==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D52D: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== Use of uninitialised value of size 8
+==15260==    at 0x498723B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D52D: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== Conditional jump or move depends on uninitialised value(s)
+==15260==    at 0x498724D: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D52D: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== Conditional jump or move depends on uninitialised value(s)
+==15260==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D52D: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== 
+==15260== HEAP SUMMARY:
+==15260==     in use at exit: 176 bytes in 3 blocks
+==15260==   total heap usage: 1,025 allocs, 1,022 frees, 124,445 bytes allocated
+==15260== 
+==15260== 176 bytes in 3 blocks are definitely lost in loss record 1 of 1
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D32E: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== LEAK SUMMARY:
+==15260==    definitely lost: 176 bytes in 3 blocks
+==15260==    indirectly lost: 0 bytes in 0 blocks
+==15260==      possibly lost: 0 bytes in 0 blocks
+==15260==    still reachable: 0 bytes in 0 blocks
+==15260==         suppressed: 0 bytes in 0 blocks
+==15260== 
+==15260== ERROR SUMMARY: 265 errors from 13 contexts (suppressed: 0 from 0)
+==15260== 
+==15260== 22 errors in context 1 of 13:
+==15260== Conditional jump or move depends on uninitialised value(s)
+==15260==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D52D: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== 
+==15260== 22 errors in context 2 of 13:
+==15260== Conditional jump or move depends on uninitialised value(s)
+==15260==    at 0x498724D: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D52D: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== 
+==15260== 22 errors in context 3 of 13:
+==15260== Use of uninitialised value of size 8
+==15260==    at 0x498723B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D52D: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== 
+==15260== 22 errors in context 4 of 13:
+==15260== Conditional jump or move depends on uninitialised value(s)
+==15260==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D52D: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== 
+==15260== 22 errors in context 5 of 13:
+==15260== Conditional jump or move depends on uninitialised value(s)
+==15260==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D4EC: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== 
+==15260== 22 errors in context 6 of 13:
+==15260== Conditional jump or move depends on uninitialised value(s)
+==15260==    at 0x498724D: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D4EC: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== 
+==15260== 22 errors in context 7 of 13:
+==15260== Use of uninitialised value of size 8
+==15260==    at 0x498723B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D4EC: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== 
+==15260== 22 errors in context 8 of 13:
+==15260== Conditional jump or move depends on uninitialised value(s)
+==15260==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D4EC: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== 
+==15260== 22 errors in context 9 of 13:
+==15260== Conditional jump or move depends on uninitialised value(s)
+==15260==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D4AC: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== 
+==15260== 22 errors in context 10 of 13:
+==15260== Conditional jump or move depends on uninitialised value(s)
+==15260==    at 0x498724D: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D4AC: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== 
+==15260== 22 errors in context 11 of 13:
+==15260== Use of uninitialised value of size 8
+==15260==    at 0x498723B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D4AC: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== 
+==15260== 22 errors in context 12 of 13:
+==15260== Conditional jump or move depends on uninitialised value(s)
+==15260==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==15260==    by 0x10D4AC: LFU_cache::print_LFU() const (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD2E: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==  Uninitialised value was created by a heap allocation
+==15260==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==15260==    by 0x10D2C2: LFU_cache::LFU_cache(int const&) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10AD1F: test_cache(char*) (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260==    by 0x10A6C0: main (in /home/etoandruwa/Desktop/Cache/build/main)
+==15260== 
+==15260== ERROR SUMMARY: 265 errors from 13 contexts (suppressed: 0 from 0)

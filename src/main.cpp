@@ -2,35 +2,31 @@
 #include "cache_funcs.hpp"
 #include "tester.hpp"
 
-int main()
+int main(int argc, char* argv[])
 {   
-    int cache_size     = 0;
-    int page_list_size = 0;
-
-    int err_code = RETURN_OK;
-
-    if (err_code = get_input(cache_size, page_list_size))
+    if(argc == 2)
     {
-        std::cout << "Error code: "  << err_code << std::endl;
-        return err_code;
+        int rtn_test_cache = test_cache(argv[1]);
+        
+        if(rtn_test_cache != RETURN_OK)
+        {
+            std::cout << "ERROR occured during testing";
+        }
+        else
+        {   
+            std::cout << "All tests were okey!\n";
+        }
     }
 
-    Page_list page_list;
-    if (err_code = get_page_list(page_list, page_list_size))
-    {
-        std::cout << "Error code: "  << err_code << std::endl;
-        return err_code;
-    }
+    // get_cache(cache, page_list);
+    // clear_cache(cache);
+    // get_cache_old(cache, page_list);
 
-    LFU_cache cache(cache_size);
-
-    get_cache(cache, page_list);
-    clear_cache(cache);
-    get_cache_old(cache, page_list);
+    // get_cache_on_map();
 
 
 
-    cache.print_LFU();
+    // cache.print_LFU();
 
     return 0;
 }

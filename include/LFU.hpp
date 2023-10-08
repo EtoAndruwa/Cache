@@ -1,4 +1,5 @@
-#pragma once 
+#ifndef LFU_HPP_TIM_A_D
+#define LFU_HPP_TIM_A_D
 
 #include <iostream> 
 #include <list>     
@@ -6,6 +7,22 @@
 #include <bits/stdc++.h>
 #include <cstdlib> 
 #include <valgrind/memcheck.h>
+#include <map>
+
+
+enum error_codes
+{   
+    RETURN_OK           = 0,
+    ERR_INV_CACHE_SIZE  = -1,
+    ERR_INV_PAGE_L_SIZE = -2,
+    ERR_NO_TEST_FILE    = -3, 
+
+};
+
+enum return_codes
+{   
+    VALUE_WAS_NOT_FOUND = -1,
+};
 
 
 // #define DEBUG
@@ -69,3 +86,5 @@ class Page_list
         list page_list_ptr_;            // std::list typedef for list of pages
         size_t page_list_size_;         // the number of elements in the std::list
 };
+
+#endif

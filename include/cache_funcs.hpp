@@ -1,19 +1,11 @@
-#pragma once 
+#ifndef CACHE_FUNCS_HPP_TIM_A_D
+#define CACHE_FUNCS_HPP_TIM_A_D
 
-enum error_codes
-{   
-    RETURN_OK           = 0,
-    ERR_INV_CACHE_SIZE  = -1,
-    ERR_INV_PAGE_L_SIZE = -2,
-};
+#include "LFU.hpp"
 
-enum return_codes
-{   
-    VALUE_WAS_NOT_FOUND = -1,
-};
+int get_input(int& cache_size, int& page_list_size, std::fstream& file_ref);
+int get_page_list(Page_list& page_list, const int& page_list_size, std::fstream& file_ref); 
 
-int get_input(int& cache_size, int& page_list_size);
-int get_page_list(Page_list& page_list, const int& page_list_size); 
 void print_page_list(const Page_list& page_list);
 int get_cache(LFU_cache& LFU_cache_ref);
 // int bubble_sort(Cache_elem* cache_ptr, const size_t& cache_size);
@@ -26,3 +18,10 @@ int get_cache_old(LFU_cache& LFU_cache_ref, Page_list& page_list);
 
 void clear_cache(LFU_cache& LFU_cache_ref);
 
+
+int get_cache_on_map();
+
+template<typename K, typename V>
+void print_map(std::unordered_map<K, V> const &m);
+
+#endif

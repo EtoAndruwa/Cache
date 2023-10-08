@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COMPARATORS_HPP_TIM_A_D
+#define COMPARATORS_HPP_TIM_A_D
 
 #include "LFU.hpp"
 
@@ -108,3 +109,5 @@ int comparator_bsearch_freq(const void* a_val, const void* b_val) // ok
         
     return 0;
 }
+
+#endif

@@ -1,3 +1,4 @@
+clear
 cd ./build
 make
-valgrind -s --leak-check=yes --show-leak-kinds=all --track-origins=yes --log-file="../logs/valgrind_log.txt" ./main < ../tests/data0.txt
+valgrind -s --leak-check=yes --show-leak-kinds=all --track-origins=yes --log-file="../logs/valgrind_log.txt" ./main 2
