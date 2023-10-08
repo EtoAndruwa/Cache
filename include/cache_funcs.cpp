@@ -1,39 +1,29 @@
 #include "cache_funcs.hpp"
 #include "comparators.hpp"
 
-int get_page_list(Page_list& page_list, const int& page_list_size, std::fstream& file_ref) 
+int get_page_list(Page_list& page_list, const int& page_list_size, std::fstream& file_ref) // ok
 {
     elem_type temp = 0;
-
     page_list.page_list_size_ = page_list_size;
 
     for (size_t i = 0; i < page_list_size; i++)
     {   
         file_ref >> temp;
-
-        std::cout << "temp(" << i << ") = " << temp << std::endl;
-
         page_list.page_list_ptr_.push_back(temp);
     }
 
     return RETURN_OK;
 }
 
-int get_input(int& cache_size, int& page_list_size, std::fstream& file_ref) 
+int get_input(int& cache_size, int& page_list_size, std::fstream& file_ref) // ok
 {
     file_ref >> cache_size;
-
-    std::cout << "cache_size " << cache_size << std::endl;
-    
     if (cache_size <= 0)
     {
         return ERR_INV_CACHE_SIZE;
     }
 
     file_ref >> page_list_size;
-
-    std::cout << "page_list_size " << page_list_size << std::endl;
-    
     if (page_list_size <= 0)
     {
         return ERR_INV_PAGE_L_SIZE;
@@ -59,14 +49,6 @@ int get_cache(LFU_cache& LFU_cache_ref, Page_list& page_list)
 
     Cache_elem** free_cache_ptr = cache_ptr + (cache_size - 1);
     Cache_elem** end_cache_ptr = cache_ptr + cache_size;
-
-    // std::cout << "N of blocks " <<   (end_cache_ptr - free_cache_ptr) << std::endl;
-
-    // #ifdef DEBUG
-    //     std::cout << "\n\n######### BEFORE ALL #########\n";
-    //     LFU_cache_ref.print_LFU();
-    //     std::cout << "######### BEFORE ALL #########\n";
-    // #endif
 
     const size_t size_of_cache_ptr = sizeof(Cache_elem*);
     size_t cache_block_num = 0;

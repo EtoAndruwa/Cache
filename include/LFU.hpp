@@ -16,6 +16,7 @@ enum error_codes
     ERR_INV_CACHE_SIZE  = -1,
     ERR_INV_PAGE_L_SIZE = -2,
     ERR_NO_TEST_FILE    = -3, 
+    ERR_OPEN_TEST_LOG   = -4,
 
 };
 
