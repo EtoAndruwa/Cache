@@ -34,7 +34,7 @@ int get_input(int& cache_size, int& page_list_size, std::fstream& file_ref) // o
 
 int get_cache(LFU_cache& LFU_cache_ref, Page_list& page_list) 
 {
-    list::iterator iter = page_list.page_list_ptr_.begin(); // iter to the start of page list
+    list::iterator iter_list = page_list.page_list_ptr_.begin(); // iter_list to the start of page list
     const size_t cache_size = LFU_cache_ref.get_cache_size();
     Cache_elem** cache_ptr = LFU_cache_ref.get_ptr_to_arr();
 
@@ -71,7 +71,7 @@ int get_cache(LFU_cache& LFU_cache_ref, Page_list& page_list)
             std::cout << "++++++++++++++++++AFTER qsort_val++++++++++++++++++\n";
         #endif
 
-        constyl_elem[0].elem_value_ = *iter; // costyl
+        constyl_elem[0].elem_value_ = *iter_list; // costyl
         Cache_elem* constyl_elem_ptr = &(constyl_elem[0]);
         Cache_elem** constyl_elem_doub_ptr = &constyl_elem_ptr;
 
@@ -79,7 +79,7 @@ int get_cache(LFU_cache& LFU_cache_ref, Page_list& page_list)
         
         if (found_cache_elem != nullptr)
         {
-            (*found_cache_elem)->elem_value_   = *iter;
+            (*found_cache_elem)->elem_value_   = *iter_list;
             (*found_cache_elem)->num_of_calls_ += 1;
             hits++;
 
@@ -89,7 +89,7 @@ int get_cache(LFU_cache& LFU_cache_ref, Page_list& page_list)
                 std::cout << "==========AFTER found elem==========\n";
             #endif
 
-            iter++; // from left to right in the page list
+            iter_list++; // from left to right in the page list
             iter_num++;
             continue;
         }
@@ -97,13 +97,13 @@ int get_cache(LFU_cache& LFU_cache_ref, Page_list& page_list)
         if (used_cache != cache_size) 
         {
             used_cache++;
-            (*free_cache_ptr)->elem_value_   = *iter;
+            (*free_cache_ptr)->elem_value_   = *iter_list;
             (*free_cache_ptr)->num_of_calls_ = 1;
             (*free_cache_ptr)->num_of_iter_  = iter_num;
 
             #ifdef DEBUG
                 std::cout << "\n==========AFTER adding new elem==========\n";
-                std::cout << "*iter = " << *iter << std::endl;
+                std::cout << "*iter_list = " << *iter_list << std::endl;
                 LFU_cache_ref.print_LFU();
                 std::cout << "==========AFTER adding new elem==========\n";
             #endif
@@ -142,7 +142,7 @@ int get_cache(LFU_cache& LFU_cache_ref, Page_list& page_list)
                 }
             }
 
-            (*result_cache_ptr)->elem_value_   = *iter;
+            (*result_cache_ptr)->elem_value_   = *iter_list;
             (*result_cache_ptr)->num_of_calls_ = 1;
             (*result_cache_ptr)->num_of_iter_  = iter_num;
 
@@ -153,7 +153,7 @@ int get_cache(LFU_cache& LFU_cache_ref, Page_list& page_list)
             #endif
         }
 
-        iter++; // from left to right in the page list
+        iter_list++; // from left to right in the page list
         iter_num++;
     }
 
@@ -162,7 +162,7 @@ int get_cache(LFU_cache& LFU_cache_ref, Page_list& page_list)
 
 int get_cache_old(LFU_cache& LFU_cache_ref, Page_list& page_list) 
 {
-    list::iterator iter = page_list.page_list_ptr_.begin(); // iter to the start of page list
+    list::iterator iter_list = page_list.page_list_ptr_.begin(); // iter_list to the start of page list
     const size_t cache_size = LFU_cache_ref.get_cache_size();
     Cache_elem* cache_ptr = LFU_cache_ref.get_cache_ptr();
 
@@ -197,16 +197,16 @@ int get_cache_old(LFU_cache& LFU_cache_ref, Page_list& page_list)
 
         qsort(free_cache_ptr + 1, cache_block_num, sizeof_cache_elem, comparator_cache_val);
 
-        constyl_elem[0].elem_value_ = *iter; // costyl
+        constyl_elem[0].elem_value_ = *iter_list; // costyl
         found_cache_elem = (Cache_elem*)bsearch((const void*)(constyl_elem), free_cache_ptr + 1, cache_block_num, sizeof_cache_elem, comparator_bsearch_val);
         
         if(found_cache_elem != nullptr)
         {
-            found_cache_elem->elem_value_   = *iter;
+            found_cache_elem->elem_value_   = *iter_list;
             found_cache_elem->num_of_calls_ += 1;
             hits++;
 
-            iter++; // from left to right in the page list
+            iter_list++; // from left to right in the page list
             iter_num++;
 
             continue;
@@ -215,7 +215,7 @@ int get_cache_old(LFU_cache& LFU_cache_ref, Page_list& page_list)
         if(used_cache != cache_size) 
         {
             used_cache++;
-            free_cache_ptr->elem_value_   = *iter;
+            free_cache_ptr->elem_value_   = *iter_list;
             free_cache_ptr->num_of_calls_ = 1;
             free_cache_ptr->num_of_iter_  = iter_num;
             free_cache_ptr--;
@@ -240,12 +240,12 @@ int get_cache_old(LFU_cache& LFU_cache_ref, Page_list& page_list)
                 }
             }
 
-            result_cache_ptr->elem_value_   = *iter;
+            result_cache_ptr->elem_value_   = *iter_list;
             result_cache_ptr->num_of_calls_ = 1;
             result_cache_ptr->num_of_iter_  = iter_num;
         }
 
-        iter++; // from left to right in the page list
+        iter_list++; // from left to right in the page list
         iter_num++;
     }
 
@@ -268,42 +268,98 @@ int get_cache_on_map(LFU_cache& LFU_cache_ref, Page_list& page_list)
 {
     std::unordered_map<int, Cache_elem> unord_map;
 
-    list::iterator iter = page_list.page_list_ptr_.begin(); // iter to the start of page list
+    list::iterator iter_list = page_list.page_list_ptr_.begin(); // iter_list to the start of page list
     const size_t cache_size = LFU_cache_ref.get_cache_size();
     const list::iterator list_end = page_list.page_list_ptr_.end(); // the end of the list
 
+
+    Cache_elem cache_block;
     size_t iter_num = 1;
     size_t used_cache = 0;
     size_t hits = 0;
 
-    while (iter != list_end)
+    while (iter_list != list_end)
     {
-        auto search_iter = unord_map.find(*iter);
+        auto search_iter = unord_map.find(*iter_list);
 
-        if(used_cache != cache_size)
+
+        if (search_iter != unord_map.end())    // found
         {
-            if(search_iter == unord_map.end())
+            search_iter->second.num_of_calls_++;    
+            hits++;          
+        }
+        else // not found
+        {
+            if (used_cache != cache_size)
             {
-                Cache_elem cache_block = {*iter, 1, iter_num};
-                unord_map.insert(std::pair<int, Cache_elem>(*iter, cache_block));
+                cache_block.elem_value_   = *iter_list;
+                cache_block.num_of_calls_ = 1;
+                cache_block.num_of_iter_  = iter_num;
+
+                unord_map.insert(std::pair<int, Cache_elem>(*iter_list, cache_block));
                 used_cache++;
             }
             else
             {
-                search_iter->second.num_of_calls_++;              
+                std::unordered_map<int, Cache_elem>::iterator iter_search   = unord_map.begin();
+                std::unordered_map<int, Cache_elem>::iterator iter_end      = unord_map.end();
+                std::unordered_map<int, Cache_elem>::iterator first_found   = iter_search;
+                std::unordered_map<int, Cache_elem>::iterator second_found  = iter_search; 
+                elem_type min_call_value = (*iter_search).second.num_of_calls_;
+
+                while (iter_search != iter_end) 
+                {
+                    if (min_call_value > (*iter_search).second.num_of_calls_)
+                    {
+                        first_found = iter_search;
+                        min_call_value = (*iter_search).second.num_of_calls_;
+                        iter_search++;
+                        continue;
+                    }
+
+                    if (min_call_value == (*iter_search).second.num_of_calls_)
+                    {
+                        second_found = iter_search;
+                    }
+
+                    iter_search++;
+                }
+
+                if (first_found == second_found)
+                {
+                    unord_map.erase((*first_found).second.elem_value_);
+                }
+                else
+                {
+                    if ((*first_found).second.num_of_iter_ > (*second_found).second.num_of_iter_)
+                    {
+                       unord_map.erase((*second_found).second.elem_value_);
+                    }
+                    else
+                    {
+                        unord_map.erase((*first_found).second.elem_value_);
+                    }
+                }
+
+                cache_block.elem_value_   = *iter_list;
+                cache_block.num_of_calls_ = 1;
+                cache_block.num_of_iter_  = iter_num;
+
+                unord_map.insert(std::pair<int, Cache_elem>(*iter_list, cache_block));
+
+                #ifdef DEBUG
+                    std::cout << "min_call_value " << min_call_value << std::endl;
+                    std::cout << "first_found = " << (*first_found).first << " " << (*first_found).second.num_of_calls_ << " " << (*first_found).second.num_of_iter_ << std::endl;
+                    std::cout << "second_found = " << (*second_found).first << " " << (*second_found).second.num_of_calls_ << " " << (*second_found).second.num_of_iter_ << std::endl;
+                #endif 
             }
-
-            iter++; // from left to right in the page list
-            iter_num++;
-
-            continue;
         }
 
-        iter++; // from left to right in the page list
+        iter_list++; // from left to right in the page list
         iter_num++;
     }
 
-    print_map(unord_map);
+    // print_map(unord_map);
     return hits;
 }
 
@@ -316,3 +372,13 @@ void print_map(std::unordered_map<K, V> const &m)
         std::cout << "{'" << pair.first << "': " << pair.second.elem_value_ << " " << pair.second.num_of_calls_ << " " << pair.second.num_of_iter_ << "}\n";
     }
 }
+
+// void find_min_freq()
+// {
+//     for (auto& it: B) 
+//     {
+//     // Do stuff
+//     cout << it.first;
+//     }
+// }
+

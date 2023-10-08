@@ -1,36 +1,36 @@
 ========== TEST 0 ==========
-(NEW)	 hits: 2 	 time taken: 0.016529 sec
-(OLD)	 hits: 2 	 time taken: 0.008679228 sec
-(NEWEST)	 hits: 0 	 time taken: 0.059952395 sec
+(NEW)	 hits: 2 	 time taken: 0.017283 sec
+(OLD)	 hits: 2 	 time taken: 0.008899663 sec
+(NEWEST)	 hits: 2 	 time taken: 0.067680030 sec
 ========== TEST 0 ==========
 
 ========== TEST 1 ==========
-(NEW)	 hits: 416 	 time taken: 0.057741569 sec
-(OLD)	 hits: 416 	 time taken: 0.087986871 sec
-(NEWEST)	 hits: 0 	 time taken: 0.018345266 sec
+(NEW)	 hits: 416 	 time taken: 0.058476773 sec
+(OLD)	 hits: 416 	 time taken: 0.088014363 sec
+(NEWEST)	 hits: 398 	 time taken: 0.101161138 sec
 ========== TEST 1 ==========
 
 ========== TEST 2 ==========
-(NEW)	 hits: 118 	 time taken: 0.004235267 sec
-(OLD)	 hits: 118 	 time taken: 0.006091075 sec
-(NEWEST)	 hits: 0 	 time taken: 0.003702136 sec
+(NEW)	 hits: 118 	 time taken: 0.004603021 sec
+(OLD)	 hits: 118 	 time taken: 0.006980490 sec
+(NEWEST)	 hits: 118 	 time taken: 0.018027187 sec
 ========== TEST 2 ==========
 
 ========== TEST 3 ==========
-(NEW)	 hits: 191 	 time taken: 0.023660983 sec
-(OLD)	 hits: 191 	 time taken: 0.028061848 sec
-(NEWEST)	 hits: 0 	 time taken: 0.007624422 sec
+(NEW)	 hits: 191 	 time taken: 0.019962306 sec
+(OLD)	 hits: 191 	 time taken: 0.028397515 sec
+(NEWEST)	 hits: 209 	 time taken: 0.042315740 sec
 ========== TEST 3 ==========
 
 ========== TEST 4 ==========
-(NEW)	 hits: 159 	 time taken: 0.002320637 sec
-(OLD)	 hits: 159 	 time taken: 0.002614350 sec
-(NEWEST)	 hits: 0 	 time taken: 0.002745473 sec
+(NEW)	 hits: 159 	 time taken: 0.002189081 sec
+(OLD)	 hits: 159 	 time taken: 0.004853105 sec
+(NEWEST)	 hits: 159 	 time taken: 0.012120562 sec
 ========== TEST 4 ==========
 
 ========== TEST 5 ==========
-(NEW)	 hits: 1012 	 time taken: 0.198203849 sec
-(OLD)	 hits: 1012 	 time taken: 0.274487792 sec
-(NEWEST)	 hits: 0 	 time taken: 0.027213687 sec
+(NEW)	 hits: 1012 	 time taken: 0.160149710 sec
+(OLD)	 hits: 1012 	 time taken: 0.266536954 sec
+(NEWEST)	 hits: 1013 	 time taken: 0.172288615 sec
 ========== TEST 5 ==========
 
