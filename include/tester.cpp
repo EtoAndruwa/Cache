@@ -23,12 +23,11 @@ int test_cache(char* num_of_test_ptr)
 
         for(size_t test_num = 0; test_num <= num_of_test; test_num++)
         {
-            int cache_size     = 0;     // the size of the cache
-            int page_list_size = 0;     // the size of the page list with data
+            int cache_size     = 0;           // the size of the cache
+            int page_list_size = 0;           // the size of the page list with data
             int err_code       = RETURN_OK;   // the error code
 
-            std::cout << "Test " << test_num << " is running now...\n";
-            // std::cout << "Data for test from " << file_name << std::endl;
+            std::cout << "===Test " << test_num << " is running now===\n";
 
             // must be in the outer function
             std::string path_to_test_data = "../tests/";
@@ -45,14 +44,14 @@ int test_cache(char* num_of_test_ptr)
 
             if (err_code = get_input(cache_size, page_list_size, test_file))
             {
-                std::cout << "Error code: "  << err_code << std::endl;
+                std::cout << "Error code: " << err_code << std::endl;
                 return err_code;
             }
 
             Page_list page_list;
             if (err_code = get_page_list(page_list, page_list_size, test_file))
             {
-                std::cout << "Error code: "  << err_code << std::endl;
+                std::cout << "Error code: " << err_code << std::endl;
                 return err_code;
             }
 
@@ -62,8 +61,9 @@ int test_cache(char* num_of_test_ptr)
     
             print_test_data(test_log_file, cache, page_list, get_cache, "(NEW)");
             clear_cache(cache);
-
             print_test_data(test_log_file, cache, page_list, get_cache_old, "(OLD)");
+            clear_cache(cache);
+            print_test_data(test_log_file, cache, page_list, get_cache_on_map, "(NEWEST)");
 
             print_test_ending(test_log_file, test_num);
 
@@ -75,7 +75,7 @@ int test_cache(char* num_of_test_ptr)
     else
     {   
         std::cout << "No test were ran\n";
-        test_log_file << "No No test were ran\n";
+        test_log_file << "No test were ran\n";
     }
 
     test_log_file.close();
@@ -102,6 +102,6 @@ void print_test_data(std::ofstream& file_ref, LFU_cache& LFU_cache_ref, Page_lis
     double time_taken = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
     time_taken *= 1e-9;
     
-    file_ref << func_name << "\t hits: " << num_of_hits << " \t time taken: " << std::fixed << time_taken << std::setprecision(9) << std::endl; 
+    file_ref << func_name << "\t hits: " << num_of_hits << " \t time taken: " << std::fixed << time_taken << std::setprecision(9) << " sec" << std::endl; 
 }
 

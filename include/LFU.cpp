@@ -62,6 +62,7 @@ LFU_cache::~LFU_cache() // ok
         std::cout << "~LFU_cache()" << std::endl;
     #endif
 
+    delete [] array_of_ptrs_;
     delete [] cache_ptr_;
 }
 

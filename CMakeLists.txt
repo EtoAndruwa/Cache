@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10) # Проверка версии CMake.
                                      # Если версия установленой программы
                                      # старее указаной, произайдёт аварийный выход.
 
-project(Hash) # Название проекта
+project(Cache) # Название проекта
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED On)

@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
         int rtn_test_cache = test_cache(argv[1]);
         
         if(rtn_test_cache != RETURN_OK)
-        {
+        {   
             std::cout << "ERROR occured during testing";
         }
         else

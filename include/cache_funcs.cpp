@@ -252,7 +252,7 @@ int get_cache_old(LFU_cache& LFU_cache_ref, Page_list& page_list)
     return hits;
 }
 
-void clear_cache(LFU_cache& LFU_cache_ref)
+void clear_cache(LFU_cache& LFU_cache_ref) // ok
 {
     Cache_elem* cache_ptr = LFU_cache_ref.get_cache_ptr();
 
@@ -264,97 +264,55 @@ void clear_cache(LFU_cache& LFU_cache_ref)
     }
 }
 
-// int get_cache_on_map(LFU_cache& LFU_cache_ref, Page_list& page_list)
-// {
-//     std::unordered_map<std::string, Cache_elem> map_ptr;
+int get_cache_on_map(LFU_cache& LFU_cache_ref, Page_list& page_list)
+{
+    std::unordered_map<int, Cache_elem> unord_map;
 
-//     list::iterator iter = page_list.page_list_ptr_.begin(); // iter to the start of page list
-//     const size_t cache_size = LFU_cache_ref.get_cache_size();
+    list::iterator iter = page_list.page_list_ptr_.begin(); // iter to the start of page list
+    const size_t cache_size = LFU_cache_ref.get_cache_size();
+    const list::iterator list_end = page_list.page_list_ptr_.end(); // the end of the list
 
-//     size_t iter_num = 1;
-//     size_t used_cache = 0;
-//     size_t hits = 0;
+    size_t iter_num = 1;
+    size_t used_cache = 0;
+    size_t hits = 0;
 
-//     auto start = std::chrono::high_resolution_clock::now();
+    while (iter != list_end)
+    {
+        auto search_iter = unord_map.find(*iter);
 
-//     while (iter_num != page_list.page_list_size_ + 1)
-//     {
-//         constyl_elem[0].elem_value_ = *iter; // costyl
-//         Cache_elem* constyl_elem_ptr = &(constyl_elem[0]);
-//         Cache_elem** constyl_elem_doub_ptr = &constyl_elem_ptr;
+        if(used_cache != cache_size)
+        {
+            if(search_iter == unord_map.end())
+            {
+                Cache_elem cache_block = {*iter, 1, iter_num};
+                unord_map.insert(std::pair<int, Cache_elem>(*iter, cache_block));
+                used_cache++;
+            }
+            else
+            {
+                search_iter->second.num_of_calls_++;              
+            }
 
-//         found_cache_elem = (Cache_elem**)bsearch((const void*)(constyl_elem_doub_ptr), free_cache_ptr + 1, cache_block_num, size_of_cache_ptr, comparator_bsearch_val_ptr);
-        
-//         if (found_cache_elem != nullptr)
-//         {
-//             (*found_cache_elem)->elem_value_   = *iter;
-//             (*found_cache_elem)->num_of_calls_ += 1;
-//             hits++;
+            iter++; // from left to right in the page list
+            iter_num++;
 
-//             iter++; // from left to right in the page list
-//             iter_num++;
-//             continue;
-//         }
+            continue;
+        }
 
-//         if (used_cache != cache_size) 
-//         {
-//             used_cache++;
-//             (*free_cache_ptr)->elem_value_   = *iter;
-//             (*free_cache_ptr)->num_of_calls_ = 1;
-//             (*free_cache_ptr)->num_of_iter_  = iter_num;
+        iter++; // from left to right in the page list
+        iter_num++;
+    }
 
-//             #ifdef DEBUG
-//                 std::cout << "\n==========AFTER adding new elem==========\n";
-//                 std::cout << "*iter = " << *iter << std::endl;
-//                 LFU_cache_ref.print_LFU();
-//                 std::cout << "==========AFTER adding new elem==========\n";
-//             #endif
-
-//             free_cache_ptr--;
-//         }
-//         else
-//         {
-//             qsort(cache_ptr, cache_size, size_of_cache_ptr, comparator_cache_freq_ptr); // now sorted by frequency
-
-//             twin_freq_cache_elem = cache_ptr + 1;
-
-//             if ((*twin_freq_cache_elem)->num_of_calls_ != (*cache_ptr)->num_of_calls_ || twin_freq_cache_elem == end_cache_ptr)
-//             {
-//                 result_cache_ptr = cache_ptr;
-//             }
-//             else
-//             {
-//                 result_cache_ptr = twin_freq_cache_elem;
-
-//                 if ((*twin_freq_cache_elem)->num_of_iter_ > (*cache_ptr)->num_of_iter_)
-//                 {
-//                     result_cache_ptr = cache_ptr;
-//                 }
-//             }
-
-//             (*result_cache_ptr)->elem_value_   = *iter;
-//             (*result_cache_ptr)->num_of_calls_ = 1;
-//             (*result_cache_ptr)->num_of_iter_  = iter_num;
-//         }
-
-//         iter++; // from left to right in the page list
-//         iter_num++;
-//     }
-
-
-
-//     auto end = std::chrono::high_resolution_clock::now();
-//     std::chrono::duration<double> duration = end - start;
-//     std::cout << "(NEW CACHE)Execution time: " << duration.count() << " seconds. Hits: "<< hits << std::endl;
-
-//     print_map(map_ptr);
-// }
+    print_map(unord_map);
+    return hits;
+}
 
 
 template<typename K, typename V>
 void print_map(std::unordered_map<K, V> const &m)
 {
-    for (auto const &pair: m) {
-        std::cout << "{'" << pair.first << "': " << pair.second.elem_value_ << pair.second.num_of_calls_ << pair.second.num_of_iter_ << "}\n";
+    for (auto const &pair: m) 
+    {
+        std::cout << "{'" << pair.first << "': " << pair.second.elem_value_ << " " << pair.second.num_of_calls_ << " " << pair.second.num_of_iter_ << "}\n";
     }
 }

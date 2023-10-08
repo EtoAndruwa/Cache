@@ -8,6 +8,7 @@
 #include <cstdlib> 
 #include <valgrind/memcheck.h>
 #include <map>
+#include <unordered_map>
 
 
 enum error_codes
@@ -37,12 +38,12 @@ class Cache_elem
         * All constructor, etc as default
     */
 
-    friend int binary_search(Cache_elem* cache_ptr, const size_t& cache_size, const elem_type& value);
+    // friend int binary_search(Cache_elem* cache_ptr, const size_t& cache_size, const elem_type& value);
 
     public:
-        int num_of_calls_;     // This value stores how many times element was in the flow before
         elem_type elem_value_; // This value stores the value of variable
-        int num_of_iter_;     // This value stores how many times element was in the flow before
+        int num_of_calls_;     // This value stores how many times element was in the flow before
+        int num_of_iter_;      // This value stores how many times element was in the flow before
 };
 
 class LFU_cache
@@ -73,8 +74,8 @@ class LFU_cache
     private:
         size_t cache_size_;             // stores the cache size
         bool cache_is_full_;            // stores the cache flag of being full
-        Cache_elem* cache_ptr_;         // stores the pointer ot the array of Cache_elem's
-        Cache_elem** array_of_ptrs_;         
+        Cache_elem* cache_ptr_;         // (OLD) stores the pointer ot the array of Cache_elem's
+        Cache_elem** array_of_ptrs_;    // (OLD) 
 };  
 
 class Page_list
