@@ -1,4 +1,4 @@
 clear
 cd ./build
 make
-valgrind -s --leak-check=yes --show-leak-kinds=all --track-origins=yes --log-file="../logs/valgrind_log.txt" ./main 5
+valgrind -s --leak-check=yes --show-leak-kinds=all --track-origins=yes --log-file="../logs/valgrind_log.txt" ./main 10

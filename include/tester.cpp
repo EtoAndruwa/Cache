@@ -21,7 +21,7 @@ int test_cache(char* num_of_test_ptr)
     {
         std::cout << num_of_test << " tests will be run\n";
 
-        for(size_t test_num = 0; test_num <= num_of_test; test_num++)
+        for(size_t test_num = 1; test_num <= num_of_test; test_num++)
         {
             int cache_size     = 0;           // the size of the cache
             int page_list_size = 0;           // the size of the page list with data

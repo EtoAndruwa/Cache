@@ -1,0 +1,36 @@
+========== TEST 0 ==========
+(NEW)	 hits: 11 	 time taken: 0.018856 sec
+(OLD)	 hits: 11 	 time taken: 0.007660570 sec
+(NEWEST)	 hits: 11 	 time taken: 0.068411098 sec
+========== TEST 0 ==========
+
+========== TEST 1 ==========
+(NEW)	 hits: 416 	 time taken: 0.070474700 sec
+(OLD)	 hits: 416 	 time taken: 0.093909190 sec
+(NEWEST)	 hits: 386 	 time taken: 0.123685670 sec
+========== TEST 1 ==========
+
+========== TEST 2 ==========
+(NEW)	 hits: 118 	 time taken: 0.004262444 sec
+(OLD)	 hits: 118 	 time taken: 0.007963420 sec
+(NEWEST)	 hits: 123 	 time taken: 0.020844874 sec
+========== TEST 2 ==========
+
+========== TEST 3 ==========
+(NEW)	 hits: 191 	 time taken: 0.022516054 sec
+(OLD)	 hits: 191 	 time taken: 0.029209628 sec
+(NEWEST)	 hits: 200 	 time taken: 0.053313587 sec
+========== TEST 3 ==========
+
+========== TEST 4 ==========
+(NEW)	 hits: 159 	 time taken: 0.003035104 sec
+(OLD)	 hits: 159 	 time taken: 0.005089245 sec
+(NEWEST)	 hits: 159 	 time taken: 0.013042866 sec
+========== TEST 4 ==========
+
+========== TEST 5 ==========
+(NEW)	 hits: 1012 	 time taken: 0.166308449 sec
+(OLD)	 hits: 1012 	 time taken: 0.276754099 sec
+(NEWEST)	 hits: 990 	 time taken: 0.223956245 sec
+========== TEST 5 ==========
+

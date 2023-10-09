@@ -26,6 +26,13 @@ enum return_codes
     VALUE_WAS_NOT_FOUND = -1,
 };
 
+enum flag_code
+{
+    UNSORTED       = 0,
+    SORTED_BY_VAL  = 1,
+    SORTED_BY_FREQ = 2,
+};
+
 
 // #define DEBUG
 
