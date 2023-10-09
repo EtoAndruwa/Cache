@@ -3,6 +3,11 @@
 
 #include "LFU.hpp"
 
+struct
+{
+    bool operator()(Cache_elem& a, Cache_elem& b) const {return a.num_of_calls_ < b.num_of_calls_;}
+}custom_op;
+
 int get_input(int& cache_size, int& page_list_size, std::fstream& file_ref);
 int get_page_list(Page_list& page_list, const int& page_list_size, std::fstream& file_ref); 
 void print_page_list(const Page_list& page_list);

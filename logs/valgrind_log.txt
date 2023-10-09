@@ -1,14 +1,14 @@
-==14377== Memcheck, a memory error detector
-==14377== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==14377== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
-==14377== Command: ./main 10
-==14377== Parent PID: 14308
-==14377== 
-==14377== 
-==14377== HEAP SUMMARY:
-==14377==     in use at exit: 0 bytes in 0 blocks
-==14377==   total heap usage: 59,556 allocs, 59,556 frees, 1,604,277 bytes allocated
-==14377== 
-==14377== All heap blocks were freed -- no leaks are possible
-==14377== 
-==14377== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==22097== Memcheck, a memory error detector
+==22097== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==22097== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==22097== Command: ./main 10
+==22097== Parent PID: 22078
+==22097== 
+==22097== 
+==22097== HEAP SUMMARY:
+==22097==     in use at exit: 0 bytes in 0 blocks
+==22097==   total heap usage: 59,614 allocs, 59,614 frees, 1,611,789 bytes allocated
+==22097== 
+==22097== All heap blocks were freed -- no leaks are possible
+==22097== 
+==22097== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

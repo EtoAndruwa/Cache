@@ -55,11 +55,6 @@ class Cache_elem
 
 class LFU_cache
 {   
-    friend void *bsearch(const void *__key, const void *__base, size_t __nmemb, size_t __size, comparison_fn_t __compar);
-    friend void qsort(void *__base, size_t __nmemb, size_t __size, comparison_fn_t __compar);
-    friend int get_cache(LFU_cache& LFU_cache_ref);
-
-
     public:
         LFU_cache(const int& cache_size);
         ~LFU_cache();
