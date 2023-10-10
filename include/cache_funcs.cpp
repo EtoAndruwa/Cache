@@ -84,14 +84,19 @@ int get_cache(LFU_cache& LFU_cache_ref, Page_list& page_list)
         
         if (found_cache_elem != nullptr)
         {
+            std::cout << "\n+++++++++++Found in cache+++++++++++++\n";
+            LFU_cache_ref.print_LFU();
             (*found_cache_elem)->num_of_calls_ += 1;
-            hits++;
 
-            #ifdef DEBUG
-                std::cout << "\n==========AFTER found elem==========\n";
-                LFU_cache_ref.print_LFU();
-                std::cout << "==========AFTER found elem==========\n";
-            #endif
+            std::cout << "Hit on elem: " << *iter_list << std::endl; 
+            std::cout << "\nHits before: " << hits << std::endl;
+            hits++;
+            std::cout << "Hits after: " << hits << std::endl << std::endl;
+
+            // std::cout << "\n==========AFTER found elem==========\n"
+            // std::cout << "==========AFTER found elem==========\n";
+            LFU_cache_ref.print_LFU();
+            std::cout << "+++++++++++Found in cache+++++++++++++\n";
 
             iter_list++; // from left to right in the page list
             iter_num++;
@@ -104,6 +109,12 @@ int get_cache(LFU_cache& LFU_cache_ref, Page_list& page_list)
             (*free_cache_ptr)->elem_value_   = *iter_list;
             (*free_cache_ptr)->num_of_calls_ = 1;
             (*free_cache_ptr)->num_of_iter_  = iter_num;
+
+            std::cout << "\n+++++++++++Cache increased+++++++++++++\n";
+            LFU_cache_ref.print_LFU();
+            std::cout << "+++++++++++Cache increased+++++++++++++\n";
+
+
             sort_falg = UNSORTED;
 
             #ifdef DEBUG
@@ -151,6 +162,10 @@ int get_cache(LFU_cache& LFU_cache_ref, Page_list& page_list)
             (*result_cache_ptr)->elem_value_   = *iter_list;
             (*result_cache_ptr)->num_of_calls_ = 1;
             (*result_cache_ptr)->num_of_iter_  = iter_num;
+
+            std::cout << "\n+++++++++++Cache full+++++++++++++\n";
+            LFU_cache_ref.print_LFU();
+            std::cout << "+++++++++++Cache full+++++++++++++\n";
 
             #ifdef DEBUG
                 std::cout << "\n==========AFTER FIFO new elem==========\n";
@@ -288,13 +303,11 @@ int get_cache_on_map(LFU_cache& LFU_cache_ref, Page_list& page_list)
     std::vector<Cache_elem> cache_vector;
     std::vector<Cache_elem>::iterator iter_vector = cache_vector.begin();
 
-
     Cache_elem cache_block;
     size_t iter_num = 1;
     size_t used_cache = 0;
     size_t hits = 0;
-    size_t sort_flag = UNSORTED;
-    
+    // size_t sort_flag = UNSORTED;
 
     std::unordered_map<int, Cache_elem>::iterator search_iter;
     const auto unord_map_end = unord_map.end();
@@ -305,50 +318,125 @@ int get_cache_on_map(LFU_cache& LFU_cache_ref, Page_list& page_list)
 
         if (search_iter != unord_map_end)    // found
         {
+            std::cout << "\n===========Found in cache===========" << std::endl; 
+            print_map(unord_map);
+            std::cout << "Hit on elem: " << *iter_list << std::endl; 
+            std::cout << "\nHits before: " << hits << std::endl;
             search_iter->second.num_of_calls_++; 
             hits++; 
+            std::cout << "Hits after: " << hits << std::endl << std::endl;
+
+            for(auto vec: cache_vector) 
+            {
+                std::cout << "[" << vec.elem_value_ << " " << vec.num_of_calls_ << " " << vec.num_of_iter_ << "]" << std::endl;
+            }
+
+            std::vector<Cache_elem>::iterator vector_search_iter = cache_vector.begin();
+            while(vector_search_iter != cache_vector.end())
+            {
+                if((*vector_search_iter).elem_value_ == *iter_list)
+                {
+                    std::cout << "FOUND!\n";
+                    (*vector_search_iter).num_of_calls_++;
+                    break;
+                }
+                vector_search_iter++;
+            }
+
+            std::cout << std::endl;
+    
+            for(auto vec: cache_vector) 
+            {
+                std::cout << "[" << vec.elem_value_ << " " << vec.num_of_calls_ << " " << vec.num_of_iter_ << "]" << std::endl;
+            }
+            // here must be increase of the call num in the VECTOR!!!!!
+
+
+            print_map(unord_map);
+            std::cout << "===========Found in cache===========" << std::endl;
         }
         else // not found
         {
             if (used_cache == cache_size)
             {
-                if(sort_flag == UNSORTED)
+                std::cout << "\n===========Cache full===========" << std::endl;
+                std::sort(cache_vector.begin(), cache_vector.end(), custom_op);
+                // sort_flag = SORTED_BY_FREQ;
+                print_map(unord_map);
+
+                for(auto vec: cache_vector) 
                 {
-                    std::sort(cache_vector.begin(), cache_vector.end(), custom_op);
-                    sort_flag = SORTED_BY_FREQ;
+                    std::cout << "[" << vec.elem_value_ << " " << vec.num_of_calls_ << " " << vec.num_of_iter_ << "]" << std::endl;
                 }
 
-                auto first_cache_iter = cache_vector.begin();
-                auto second_cache_iter = first_cache_iter++;
-
-                if((*first_cache_iter).num_of_iter_ > (*second_cache_iter).num_of_iter_)
+                if((cache_vector[0].num_of_calls_ != cache_vector[1].num_of_calls_) || (cache_size == 1))
                 {
-                    // std::cout << "erasing " << (*second_cache_iter).elem_value_ << std::endl;
-                    // std::cout << "inserting " << *iter_list << std::endl;
-                    unord_map.erase((*second_cache_iter).elem_value_);
-                    cache_vector.erase(second_cache_iter);
-                    sort_flag   = UNSORTED;
+                    std::cout << "case 0 " << std::endl;
+                    unord_map.erase(cache_vector[0].elem_value_);
+                    
+                    cache_vector[0].elem_value_   = *iter_list;
+                    cache_vector[0].num_of_calls_ = 1;
+                    cache_vector[0].num_of_iter_  = iter_num;
                 }
                 else
                 {
-                    // std::cout << "erasing " << (*first_cache_iter).elem_value_ << std::endl;
-                    // std::cout << "inserting " << *iter_list << std::endl;
-                    unord_map.erase((*first_cache_iter).elem_value_);
-                    cache_vector.erase(first_cache_iter);
+                    if(cache_vector[0].num_of_iter_ > cache_vector[1].num_of_iter_)
+                    {
+                        std::cout << "case 1 " << std::endl;
+
+                        std::cout << "erasing " << cache_vector[1].elem_value_ << std::endl;
+                        std::cout << "inserting " << *iter_list << std::endl;
+                        unord_map.erase(cache_vector[1].elem_value_);
+                        
+                        cache_vector[1].elem_value_   = *iter_list;
+                        cache_vector[1].num_of_calls_ = 1;
+                        cache_vector[1].num_of_iter_  = iter_num;
+                    }
+                    else
+                    {
+                        std::cout << "case 2 " << std::endl;
+                        std::cout << "erasing " << cache_vector[0].elem_value_ << std::endl;
+                        std::cout << "inserting " << *iter_list << std::endl;
+                        unord_map.erase(cache_vector[0].elem_value_);
+                        
+                        cache_vector[0].elem_value_   = *iter_list;
+                        cache_vector[0].num_of_calls_ = 1;
+                        cache_vector[0].num_of_iter_  = iter_num;
+                    } 
                 }
+
+                cache_block.elem_value_   = *iter_list;
+                cache_block.num_of_calls_ = 1;      
+                cache_block.num_of_iter_  = iter_num;
+
+                unord_map.insert(std::pair<int, Cache_elem>(*iter_list, cache_block));
+
+                for(auto vec: cache_vector) 
+                {
+                    std::cout << "[" << vec.elem_value_ << " " << vec.num_of_calls_ << " " << vec.num_of_iter_ << "]" << std::endl;
+                }
+
+                print_map(unord_map);
+                std::cout << "===========Cache full===========\n" << std::endl; 
             }
             else
             {
+                std::cout << "case 3\n";
+
+                cache_block.elem_value_   = *iter_list;
+                cache_block.num_of_calls_ = 1;      
+                cache_block.num_of_iter_  = iter_num;
+
                 used_cache++;
-                sort_flag   = UNSORTED;
+                // sort_flag = UNSORTED;
+
+                iter_vector = cache_vector.insert(iter_vector, cache_block); // adding new elem to the vector
+                unord_map.insert(std::pair<int, Cache_elem>(*iter_list, cache_block));
+                
+                std::cout << "\n===========Cache increased===========" << std::endl;
+                print_map(unord_map);
+                std::cout << "===========Cache increased===========\n" << std::endl;
             }
-
-            cache_block.elem_value_   = *iter_list;
-            cache_block.num_of_calls_ = 1;      
-            cache_block.num_of_iter_  = iter_num;
-
-            iter_vector = cache_vector.insert(iter_vector, cache_block); // adding new elem to the vector
-            unord_map.insert(std::pair<int, Cache_elem>(*iter_list, cache_block));
         }
 
         iter_list++; // from left to right in the page list
@@ -358,7 +446,6 @@ int get_cache_on_map(LFU_cache& LFU_cache_ref, Page_list& page_list)
     // print_map(unord_map);
     return hits;
 }
-
 
 template<typename K, typename V>
 void print_map(std::unordered_map<K, V> const &m)

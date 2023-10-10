@@ -40,19 +40,19 @@ void LFU_cache::print_LFU() const // ok
         std::cout << "\nLFU cache_size_: " << cache_size_ << std::endl;
     #endif
    
-    std::cout << "==========Cache data==========\n";
+    // std::cout << "==========Cache data==========\n";
     for (size_t i = 0; i < cache_size_; i++)
     {
-        std::cout << "(" << &(cache_ptr_[i]) << ")cache_ptr_[" << i << "]: elem_value_ = " << cache_ptr_[i].elem_value_ << " num_of_calls_ = " << cache_ptr_[i].num_of_calls_ << " num_of_iter_ = " << cache_ptr_[i].num_of_iter_ << std::endl;
+        std::cout << "{\'" << cache_ptr_[i].elem_value_ << "\': " << cache_ptr_[i].elem_value_ << " " << cache_ptr_[i].num_of_calls_ << " " << cache_ptr_[i].num_of_iter_ << "}"<< std::endl;
     }   
-    std::cout << "==========Cache data==========\n\n";
+    // std::cout << "==========Cache data==========\n\n";
 
-    std::cout << "==========Pointers array==========\n";
-    for (size_t i = 0; i < cache_size_; i++)
-    {
-        std::cout << "cache_ptr_[" << i << "] = " << array_of_ptrs_[i] << std::endl;
-    }   
-    std::cout << "==========Pointers array==========\n\n";
+    // std::cout << "==========Pointers array==========\n";
+    // for (size_t i = 0; i < cache_size_; i++)
+    // {
+    //     std::cout << "cache_ptr_[" << i << "] = " << array_of_ptrs_[i] << std::endl;
+    // }   
+    // std::cout << "==========Pointers array==========\n\n";
 
 }
 
