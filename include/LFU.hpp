@@ -1,43 +1,30 @@
 #ifndef LFU_HPP_TIM_A_D
 #define LFU_HPP_TIM_A_D
 
+/*==========================================================================================================================================*/
+
 #include <iostream> 
 #include <list>     
-#include <array>
-#include <bits/stdc++.h>
-#include <cstdlib> 
 #include <valgrind/memcheck.h>
-#include <map>
 #include <unordered_map>
+#include <algorithm>
 
+/*==========================================================================================================================================*/
 
-enum error_codes
-{   
-    RETURN_OK           = 0,
-    ERR_INV_CACHE_SIZE  = -1,
-    ERR_INV_PAGE_L_SIZE = -2,
-    ERR_NO_TEST_FILE    = -3, 
-    ERR_OPEN_TEST_LOG   = -4,
-
-};
-
-enum return_codes
-{   
-    VALUE_WAS_NOT_FOUND = -1,
-};
-
-enum flag_code
-{
-    UNSORTED       = 0,
-    SORTED_BY_VAL  = 1,
-    SORTED_BY_FREQ = 2,
-};
-
-
-// #define DEBUG
+#define DEBUG
 
 typedef int elem_type;             // The type of element for which LFU cache was made
 typedef std::list<elem_type> list; // std::list typedef
+class Page_list;
+
+/*==========================================================================================================================================*/
+
+enum error_codes
+{
+    RETURN_OK,
+};
+
+/*==========================================================================================================================================*/
 
 class Cache_elem
 {
@@ -45,18 +32,18 @@ class Cache_elem
         * All constructor, etc as default
     */
 
-    // friend int binary_search(Cache_elem* cache_ptr, const size_t& cache_size, const elem_type& value);
-
-    public:
-        elem_type elem_value_; // This value stores the value of variable
-        int num_of_calls_;     // This value stores how many times element was in the flow before
-        int num_of_iter_;      // This value stores how many times element was in the flow before
+    private:
+        elem_type elem_value_;      // This value stores the value of variable
+        size_t num_of_calls_;       // This value stores how many times element was in the flow before
+        size_t entered_iter_num;    // This value stores how many times element was in the flow before
 };
 
+/*==========================================================================================================================================*/
+
 class LFU_cache
-{   
+{  
     public:
-        LFU_cache(const int& cache_size);
+        LFU_cache(const size_t& cache_size);
         ~LFU_cache();
 
         /**
@@ -66,29 +53,44 @@ class LFU_cache
          * Move assignment
         */
 
-        void print_LFU() const;                 // prints all data about LFU_cache
+        void print_LFU_cache() const;           // prints all data about LFU_cache
+        void print_page_list() const;  
+
         bool get_full_status() const;           // get the value of cache_is_full_
         void set_full_status(const bool& val);  // get the value of cache_is_full_
         size_t get_cache_size() const;          // gets tha value of cache_size_
-        Cache_elem* get_cache_ptr() const;      // get the pointer to the array of Cache_elem's
-        Cache_elem** get_ptr_to_arr() const;      
 
     private:
-        size_t cache_size_;             // stores the cache size
-        bool cache_is_full_;            // stores the cache flag of being full
-        Cache_elem* cache_ptr_;         // (OLD) stores the pointer ot the array of Cache_elem's
-        Cache_elem** array_of_ptrs_;    // (OLD) 
+        size_t cache_size_;   // stores the cache size
+        bool cache_is_full_;  // stores the cache flag of being full
+        Page_list page_list_; // 
+
+
+        /** NOTE
+         * 
+         *here must be two containers 
+         * 
+        */
 };  
+
+/*==========================================================================================================================================*/
 
 class Page_list
 {
-    /**
-        * All constructor, etc as default
-    */
+    friend LFU_cache;
+
+    Page_list(const size_t& sequence_size);
+    Page_list();
+    ~Page_list();
+    
+    void print_page_list() const; // prints all elements of the list
+
    
-    public:
-        list page_list_ptr_;            // std::list typedef for list of pages
-        size_t page_list_size_;         // the number of elements in the std::list
+    private:
+        list sequence_;        // std::list typedef for list of pages
+        size_t sequence_size_; // the number of elements in the std::list
 };
+
+/*==========================================================================================================================================*/
 
 #endif

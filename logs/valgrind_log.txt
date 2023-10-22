@@ -1,1109 +1,185 @@
-==38709== Memcheck, a memory error detector
-==38709== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==38709== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
-==38709== Command: ./main 10
-==38709== Parent PID: 38690
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F4C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Use of uninitialised value of size 8
-==38709==    at 0x498723B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F4C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498724D: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F4C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F4C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F8C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Use of uninitialised value of size 8
-==38709==    at 0x498723B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F8C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498724D: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F8C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F8C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113FCD: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Use of uninitialised value of size 8
-==38709==    at 0x498723B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113FCD: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498724D: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113FCD: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113FCD: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x11400E: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Use of uninitialised value of size 8
-==38709==    at 0x498723B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x11400E: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498724D: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x11400E: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x11400E: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F4C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DB70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:88)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F4C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DB70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:88)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F8C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DB70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:88)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F8C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DB70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:88)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113FCD: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DB70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:88)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113FCD: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DB70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:88)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x11400E: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DB70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:88)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x11400E: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DB70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:88)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F4C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DC70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:98)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F4C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DC70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:98)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F8C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DC70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:98)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F8C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DC70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:98)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113FCD: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DC70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:98)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113FCD: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DC70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:98)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x11400E: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DC70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:98)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x11400E: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DC70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:98)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== Process terminating with default action of signal 2 (SIGINT)
-==38709==    at 0x4B9613E: write (write.c:26)
-==38709==    by 0x4B1EED4: _IO_file_write@@GLIBC_2.2.5 (fileops.c:1180)
-==38709==    by 0x4B1E28F: new_do_write (fileops.c:448)
-==38709==    by 0x4B1FEE8: _IO_do_write@@GLIBC_2.2.5 (fileops.c:425)
-==38709==    by 0x4B202F2: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:783)
-==38709==    by 0x4994029: std::ostream::put(char) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994562: std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x114035: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DE28: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:167)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== HEAP SUMMARY:
-==38709==     in use at exit: 187,518 bytes in 4,010 blocks
-==38709==   total heap usage: 15,868 allocs, 11,858 frees, 491,860 bytes allocated
-==38709== 
-==38709== 31 bytes in 1 blocks are still reachable in loss record 1 of 11
-==38709==    at 0x4840F2F: operator new(unsigned long) (vg_replace_malloc.c:422)
-==38709==    by 0x49A3CDD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x49A565F: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x10CFAA: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:3436)
-==38709==    by 0x10BB75: test_cache(char*) (tester.cpp:10)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 31 bytes in 1 blocks are still reachable in loss record 2 of 11
-==38709==    at 0x4840F2F: operator new(unsigned long) (vg_replace_malloc.c:422)
-==38709==    by 0x49A3CDD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x49A565F: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x10CFF7: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:3504)
-==38709==    by 0x10BDB3: test_cache(char*) (tester.cpp:36)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 160 bytes in 1 blocks are still reachable in loss record 3 of 11
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113E4E: LFU_cache::LFU_cache(int const&) (LFU.cpp:24)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 240 bytes in 1 blocks are still reachable in loss record 4 of 11
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 472 bytes in 1 blocks are still reachable in loss record 5 of 11
-==38709==    at 0x48407B4: malloc (vg_replace_malloc.c:381)
-==38709==    by 0x4B1410A: __fopen_internal (iofopen.c:65)
-==38709==    by 0x492DD03: std::__basic_file<char>::open(char const*, std::_Ios_Openmode, int) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4972A9D: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x497351D: std::basic_ofstream<char, std::char_traits<char> >::basic_ofstream(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x10BBBB: test_cache(char*) (tester.cpp:12)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 472 bytes in 1 blocks are still reachable in loss record 6 of 11
-==38709==    at 0x48407B4: malloc (vg_replace_malloc.c:381)
-==38709==    by 0x4B1410A: __fopen_internal (iofopen.c:65)
-==38709==    by 0x492DD03: std::__basic_file<char>::open(char const*, std::_Ios_Openmode, int) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4972A9D: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4972E17: std::basic_fstream<char, std::char_traits<char> >::basic_fstream(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x10BE2C: test_cache(char*) (tester.cpp:38)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 1,024 bytes in 1 blocks are still reachable in loss record 7 of 11
-==38709==    at 0x48407B4: malloc (vg_replace_malloc.c:381)
-==38709==    by 0x4B137DB: _IO_file_doallocate (filedoalloc.c:101)
-==38709==    by 0x4B20FBF: _IO_doallocbuf (genops.c:347)
-==38709==    by 0x4B20FBF: _IO_doallocbuf (genops.c:342)
-==38709==    by 0x4B20387: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
-==38709==    by 0x4B1F54D: _IO_new_file_xsputn (fileops.c:1243)
-==38709==    by 0x4B1F54D: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
-==38709==    by 0x4B14A72: fwrite (iofwrite.c:39)
-==38709==    by 0x49873C1: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x10BC12: test_cache(char*) (tester.cpp:22)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 8,192 bytes in 1 blocks are still reachable in loss record 8 of 11
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x496ECE3: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4972AB5: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x497351D: std::basic_ofstream<char, std::char_traits<char> >::basic_ofstream(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x10BBBB: test_cache(char*) (tester.cpp:12)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 8,192 bytes in 1 blocks are still reachable in loss record 9 of 11
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x496ECE3: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4972AB5: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4972E17: std::basic_fstream<char, std::char_traits<char> >::basic_fstream(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x10BE2C: test_cache(char*) (tester.cpp:38)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 72,704 bytes in 1 blocks are still reachable in loss record 10 of 11
-==38709==    at 0x48407B4: malloc (vg_replace_malloc.c:381)
-==38709==    by 0x49097B9: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x40048BD: call_init (dl-init.c:90)
-==38709==    by 0x40048BD: call_init (dl-init.c:27)
-==38709==    by 0x40049A3: _dl_init (dl-init.c:137)
-==38709==    by 0x401A90F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
-==38709==    by 0x1: ???
-==38709==    by 0x1FFF0000FE: ???
-==38709==    by 0x1FFF000105: ???
-==38709== 
-==38709== 96,000 bytes in 4,000 blocks are still reachable in loss record 11 of 11
-==38709==    at 0x4840F2F: operator new(unsigned long) (vg_replace_malloc.c:422)
-==38709==    by 0x11318C: std::__new_allocator<std::_List_node<int> >::allocate(unsigned long, void const*) (new_allocator.h:137)
-==38709==    by 0x112936: std::allocator_traits<std::allocator<std::_List_node<int> > >::allocate(std::allocator<std::_List_node<int> >&, unsigned long) (alloc_traits.h:464)
-==38709==    by 0x111F22: std::__cxx11::_List_base<int, std::allocator<int> >::_M_get_node() (stl_list.h:518)
-==38709==    by 0x111496: std::_List_node<int>* std::__cxx11::list<int, std::allocator<int> >::_M_create_node<int const&>(int const&) (stl_list.h:710)
-==38709==    by 0x110B49: void std::__cxx11::list<int, std::allocator<int> >::_M_insert<int const&>(std::_List_iterator<int>, int const&) (stl_list.h:2005)
-==38709==    by 0x1102B9: std::__cxx11::list<int, std::allocator<int> >::push_back(int const&) (stl_list.h:1306)
-==38709==    by 0x10D933: get_page_list(Page_list&, int const&, std::basic_fstream<char, std::char_traits<char> >&) (cache_funcs.cpp:12)
-==38709==    by 0x10BF3B: test_cache(char*) (tester.cpp:52)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== LEAK SUMMARY:
-==38709==    definitely lost: 0 bytes in 0 blocks
-==38709==    indirectly lost: 0 bytes in 0 blocks
-==38709==      possibly lost: 0 bytes in 0 blocks
-==38709==    still reachable: 187,518 bytes in 4,010 blocks
-==38709==         suppressed: 0 bytes in 0 blocks
-==38709== 
-==38709== ERROR SUMMARY: 16608 errors from 32 contexts (suppressed: 0 from 0)
-==38709== 
-==38709== 234 errors in context 1 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x11400E: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DC70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:98)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 234 errors in context 2 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x11400E: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DC70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:98)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 234 errors in context 3 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113FCD: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DC70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:98)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 234 errors in context 4 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113FCD: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DC70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:98)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 234 errors in context 5 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F8C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DC70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:98)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 234 errors in context 6 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F8C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DC70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:98)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 234 errors in context 7 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F4C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DC70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:98)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 234 errors in context 8 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F4C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DC70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:98)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 234 errors in context 9 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x11400E: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DB70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:88)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 234 errors in context 10 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x11400E: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DB70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:88)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 234 errors in context 11 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113FCD: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DB70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:88)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 234 errors in context 12 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113FCD: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DB70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:88)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 234 errors in context 13 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F8C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DB70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:88)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 234 errors in context 14 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F8C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DB70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:88)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 234 errors in context 15 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F4C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DB70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:88)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 234 errors in context 16 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F4C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DB70: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:88)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 570 errors in context 17 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x11400E: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 570 errors in context 18 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x11400E: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 570 errors in context 19 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113FCD: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 570 errors in context 20 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113FCD: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 570 errors in context 21 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F8C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 570 errors in context 22 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F8C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 570 errors in context 23 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498738B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F4C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 570 errors in context 24 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498732C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F4C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 1038 errors in context 25 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498724D: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x11400E: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 1038 errors in context 26 of 32:
-==38709== Use of uninitialised value of size 8
-==38709==    at 0x498723B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x11400E: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 1038 errors in context 27 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498724D: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113FCD: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 1038 errors in context 28 of 32:
-==38709== Use of uninitialised value of size 8
-==38709==    at 0x498723B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113FCD: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 1038 errors in context 29 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498724D: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F8C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 1038 errors in context 30 of 32:
-==38709== Use of uninitialised value of size 8
-==38709==    at 0x498723B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F8C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 1038 errors in context 31 of 32:
-==38709== Conditional jump or move depends on uninitialised value(s)
-==38709==    at 0x498724D: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F4C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== 
-==38709== 1038 errors in context 32 of 32:
-==38709== Use of uninitialised value of size 8
-==38709==    at 0x498723B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4987356: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
-==38709==    by 0x113F4C: LFU_cache::print_LFU() const (LFU.cpp:46)
-==38709==    by 0x10DD18: get_cache(LFU_cache&, Page_list&) (cache_funcs.cpp:114)
-==38709==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
-==38709==    by 0x10BFF3: test_cache(char*) (tester.cpp:62)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709==  Uninitialised value was created by a heap allocation
-==38709==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
-==38709==    by 0x113DE2: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
-==38709==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
-==38709==    by 0x10B790: main (main.cpp:9)
-==38709== 
-==38709== ERROR SUMMARY: 16608 errors from 32 contexts (suppressed: 0 from 0)
+==7291== Memcheck, a memory error detector
+==7291== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==7291== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==7291== Command: ./main 1
+==7291== Parent PID: 7214
+==7291== 
+==7291== 
+==7291== Process terminating with default action of signal 2 (SIGINT)
+==7291==    at 0x4B9613E: write (write.c:26)
+==7291==    by 0x4B1EED4: _IO_file_write@@GLIBC_2.2.5 (fileops.c:1180)
+==7291==    by 0x4B1E28F: new_do_write (fileops.c:448)
+==7291==    by 0x4B1FEE8: _IO_do_write@@GLIBC_2.2.5 (fileops.c:425)
+==7291==    by 0x4B202F2: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:783)
+==7291==    by 0x4994029: std::ostream::put(char) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x4994562: std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x10E672: get_cache_on_map(LFU_cache&, Page_list&) (cache_funcs.cpp:362)
+==7291==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
+==7291==    by 0x10C067: test_cache(char*) (tester.cpp:66)
+==7291==    by 0x10B790: main (main.cpp:9)
+==7291== 
+==7291== HEAP SUMMARY:
+==7291==     in use at exit: 262,522 bytes in 6,975 blocks
+==7291==   total heap usage: 21,269 allocs, 14,294 frees, 14,263,418 bytes allocated
+==7291== 
+==7291== 31 bytes in 1 blocks are still reachable in loss record 1 of 15
+==7291==    at 0x4840F2F: operator new(unsigned long) (vg_replace_malloc.c:422)
+==7291==    by 0x49A3CDD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x49A565F: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x10CFAA: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:3436)
+==7291==    by 0x10BB75: test_cache(char*) (tester.cpp:10)
+==7291==    by 0x10B790: main (main.cpp:9)
+==7291== 
+==7291== 31 bytes in 1 blocks are still reachable in loss record 2 of 15
+==7291==    at 0x4840F2F: operator new(unsigned long) (vg_replace_malloc.c:422)
+==7291==    by 0x49A3CDD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x49A565F: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x10CFF7: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:3504)
+==7291==    by 0x10BDB3: test_cache(char*) (tester.cpp:36)
+==7291==    by 0x10B790: main (main.cpp:9)
+==7291== 
+==7291== 120 bytes in 5 blocks are still reachable in loss record 3 of 15
+==7291==    at 0x4840F2F: operator new(unsigned long) (vg_replace_malloc.c:422)
+==7291==    by 0x1135C6: std::__new_allocator<std::__detail::_Hash_node<std::pair<int const, Cache_elem>, false> >::allocate(unsigned long, void const*) (new_allocator.h:137)
+==7291==    by 0x1131F3: std::allocator_traits<std::allocator<std::__detail::_Hash_node<std::pair<int const, Cache_elem>, false> > >::allocate(std::allocator<std::__detail::_Hash_node<std::pair<int const, Cache_elem>, false> >&, unsigned long) (alloc_traits.h:464)
+==7291==    by 0x112B79: std::__detail::_Hash_node<std::pair<int const, Cache_elem>, false>* std::__detail::_Hashtable_alloc<std::allocator<std::__detail::_Hash_node<std::pair<int const, Cache_elem>, false> > >::_M_allocate_node<std::pair<int, Cache_elem> >(std::pair<int, Cache_elem>&&) (hashtable_policy.h:1963)
+==7291==    by 0x11239E: std::_Hashtable<int, std::pair<int const, Cache_elem>, std::allocator<std::pair<int const, Cache_elem> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_Scoped_node::_Scoped_node<std::pair<int, Cache_elem> >(std::__detail::_Hashtable_alloc<std::allocator<std::__detail::_Hash_node<std::pair<int const, Cache_elem>, false> > >*, std::pair<int, Cache_elem>&&) (hashtable.h:308)
+==7291==    by 0x111836: std::pair<std::__detail::_Node_iterator<std::pair<int const, Cache_elem>, false, false>, bool> std::_Hashtable<int, std::pair<int const, Cache_elem>, std::allocator<std::pair<int const, Cache_elem> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_emplace<std::pair<int, Cache_elem> >(std::integral_constant<bool, true>, std::pair<int, Cache_elem>&&) (hashtable.h:2063)
+==7291==    by 0x110DDF: std::pair<std::__detail::_Node_iterator<std::pair<int const, Cache_elem>, false, false>, bool> std::_Hashtable<int, std::pair<int const, Cache_elem>, std::allocator<std::pair<int const, Cache_elem> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::emplace<std::pair<int, Cache_elem> >(std::pair<int, Cache_elem>&&) (hashtable.h:950)
+==7291==    by 0x1106B3: std::enable_if<std::is_constructible<std::pair<int const, Cache_elem>, std::pair<int, Cache_elem>&&>::value, std::pair<std::__detail::_Node_iterator<std::pair<int const, Cache_elem>, false, false>, bool> >::type std::unordered_map<int, Cache_elem, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<int const, Cache_elem> > >::insert<std::pair<int, Cache_elem> >(std::pair<int, Cache_elem>&&) (unordered_map.h:564)
+==7291==    by 0x10EE45: get_cache_on_map(LFU_cache&, Page_list&) (cache_funcs.cpp:434)
+==7291==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
+==7291==    by 0x10C067: test_cache(char*) (tester.cpp:66)
+==7291==    by 0x10B790: main (main.cpp:9)
+==7291== 
+==7291== 472 bytes in 1 blocks are still reachable in loss record 4 of 15
+==7291==    at 0x48407B4: malloc (vg_replace_malloc.c:381)
+==7291==    by 0x4B1410A: __fopen_internal (iofopen.c:65)
+==7291==    by 0x492DD03: std::__basic_file<char>::open(char const*, std::_Ios_Openmode, int) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x4972A9D: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x497351D: std::basic_ofstream<char, std::char_traits<char> >::basic_ofstream(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x10BBBB: test_cache(char*) (tester.cpp:12)
+==7291==    by 0x10B790: main (main.cpp:9)
+==7291== 
+==7291== 472 bytes in 1 blocks are still reachable in loss record 5 of 15
+==7291==    at 0x48407B4: malloc (vg_replace_malloc.c:381)
+==7291==    by 0x4B1410A: __fopen_internal (iofopen.c:65)
+==7291==    by 0x492DD03: std::__basic_file<char>::open(char const*, std::_Ios_Openmode, int) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x4972A9D: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x4972E17: std::basic_fstream<char, std::char_traits<char> >::basic_fstream(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x10BE2C: test_cache(char*) (tester.cpp:38)
+==7291==    by 0x10B790: main (main.cpp:9)
+==7291== 
+==7291== 696 bytes in 1 blocks are still reachable in loss record 6 of 15
+==7291==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==7291==    by 0x113C82: LFU_cache::LFU_cache(int const&) (LFU.cpp:24)
+==7291==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
+==7291==    by 0x10B790: main (main.cpp:9)
+==7291== 
+==7291== 1,016 bytes in 1 blocks are still reachable in loss record 7 of 15
+==7291==    at 0x4840F2F: operator new(unsigned long) (vg_replace_malloc.c:422)
+==7291==    by 0x1138C1: std::__new_allocator<std::__detail::_Hash_node_base*>::allocate(unsigned long, void const*) (new_allocator.h:137)
+==7291==    by 0x113853: std::allocator_traits<std::allocator<std::__detail::_Hash_node_base*> >::allocate(std::allocator<std::__detail::_Hash_node_base*>&, unsigned long) (alloc_traits.h:464)
+==7291==    by 0x1137C5: std::__detail::_Hashtable_alloc<std::allocator<std::__detail::_Hash_node<std::pair<int const, Cache_elem>, false> > >::_M_allocate_buckets(unsigned long) (hashtable_policy.h:2017)
+==7291==    by 0x11365A: std::_Hashtable<int, std::pair<int const, Cache_elem>, std::allocator<std::pair<int const, Cache_elem> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_allocate_buckets(unsigned long) (hashtable.h:443)
+==7291==    by 0x113260: std::_Hashtable<int, std::pair<int const, Cache_elem>, std::allocator<std::pair<int const, Cache_elem> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash_aux(unsigned long, std::integral_constant<bool, true>) (hashtable.h:2562)
+==7291==    by 0x112C87: std::_Hashtable<int, std::pair<int const, Cache_elem>, std::allocator<std::pair<int const, Cache_elem> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (hashtable.h:2541)
+==7291==    by 0x112510: std::_Hashtable<int, std::pair<int const, Cache_elem>, std::allocator<std::pair<int const, Cache_elem> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_insert_unique_node(unsigned long, unsigned long, std::__detail::_Hash_node<std::pair<int const, Cache_elem>, false>*, unsigned long) (hashtable.h:2155)
+==7291==    by 0x111A1B: std::pair<std::__detail::_Node_iterator<std::pair<int const, Cache_elem>, false, false>, bool> std::_Hashtable<int, std::pair<int const, Cache_elem>, std::allocator<std::pair<int const, Cache_elem> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_emplace<std::pair<int, Cache_elem> >(std::integral_constant<bool, true>, std::pair<int, Cache_elem>&&) (hashtable.h:2081)
+==7291==    by 0x110DDF: std::pair<std::__detail::_Node_iterator<std::pair<int const, Cache_elem>, false, false>, bool> std::_Hashtable<int, std::pair<int const, Cache_elem>, std::allocator<std::pair<int const, Cache_elem> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::emplace<std::pair<int, Cache_elem> >(std::pair<int, Cache_elem>&&) (hashtable.h:950)
+==7291==    by 0x1106B3: std::enable_if<std::is_constructible<std::pair<int const, Cache_elem>, std::pair<int, Cache_elem>&&>::value, std::pair<std::__detail::_Node_iterator<std::pair<int const, Cache_elem>, false, false>, bool> >::type std::unordered_map<int, Cache_elem, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<int const, Cache_elem> > >::insert<std::pair<int, Cache_elem> >(std::pair<int, Cache_elem>&&) (unordered_map.h:564)
+==7291==    by 0x10EE45: get_cache_on_map(LFU_cache&, Page_list&) (cache_funcs.cpp:434)
+==7291== 
+==7291== 1,024 bytes in 1 blocks are still reachable in loss record 8 of 15
+==7291==    at 0x48407B4: malloc (vg_replace_malloc.c:381)
+==7291==    by 0x4B137DB: _IO_file_doallocate (filedoalloc.c:101)
+==7291==    by 0x4B20FBF: _IO_doallocbuf (genops.c:347)
+==7291==    by 0x4B20FBF: _IO_doallocbuf (genops.c:342)
+==7291==    by 0x4B20387: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+==7291==    by 0x4B1F54D: _IO_new_file_xsputn (fileops.c:1243)
+==7291==    by 0x4B1F54D: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==7291==    by 0x4B14A72: fwrite (iofwrite.c:39)
+==7291==    by 0x49873C1: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x4994DE9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x10BC12: test_cache(char*) (tester.cpp:22)
+==7291==    by 0x10B790: main (main.cpp:9)
+==7291== 
+==7291== 1,044 bytes in 1 blocks are still reachable in loss record 9 of 15
+==7291==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==7291==    by 0x113C16: LFU_cache::LFU_cache(int const&) (LFU.cpp:18)
+==7291==    by 0x10BFAB: test_cache(char*) (tester.cpp:58)
+==7291==    by 0x10B790: main (main.cpp:9)
+==7291== 
+==7291== 1,536 bytes in 1 blocks are still reachable in loss record 10 of 15
+==7291==    at 0x4840F2F: operator new(unsigned long) (vg_replace_malloc.c:422)
+==7291==    by 0x112ED2: std::__new_allocator<Cache_elem>::allocate(unsigned long, void const*) (new_allocator.h:137)
+==7291==    by 0x1126DD: std::allocator_traits<std::allocator<Cache_elem> >::allocate(std::allocator<Cache_elem>&, unsigned long) (alloc_traits.h:464)
+==7291==    by 0x111CFD: std::_Vector_base<Cache_elem, std::allocator<Cache_elem> >::_M_allocate(unsigned long) (stl_vector.h:378)
+==7291==    by 0x111169: void std::vector<Cache_elem, std::allocator<Cache_elem> >::_M_realloc_insert<Cache_elem const&>(__gnu_cxx::__normal_iterator<Cache_elem*, std::vector<Cache_elem, std::allocator<Cache_elem> > >, Cache_elem const&) (vector.tcc:453)
+==7291==    by 0x1108D4: std::vector<Cache_elem, std::allocator<Cache_elem> >::insert(__gnu_cxx::__normal_iterator<Cache_elem const*, std::vector<Cache_elem, std::allocator<Cache_elem> > >, Cache_elem const&) (vector.tcc:164)
+==7291==    by 0x10EE00: get_cache_on_map(LFU_cache&, Page_list&) (cache_funcs.cpp:433)
+==7291==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
+==7291==    by 0x10C067: test_cache(char*) (tester.cpp:66)
+==7291==    by 0x10B790: main (main.cpp:9)
+==7291== 
+==7291== 1,968 bytes in 82 blocks are still reachable in loss record 11 of 15
+==7291==    at 0x4840F2F: operator new(unsigned long) (vg_replace_malloc.c:422)
+==7291==    by 0x1135C6: std::__new_allocator<std::__detail::_Hash_node<std::pair<int const, Cache_elem>, false> >::allocate(unsigned long, void const*) (new_allocator.h:137)
+==7291==    by 0x1131F3: std::allocator_traits<std::allocator<std::__detail::_Hash_node<std::pair<int const, Cache_elem>, false> > >::allocate(std::allocator<std::__detail::_Hash_node<std::pair<int const, Cache_elem>, false> >&, unsigned long) (alloc_traits.h:464)
+==7291==    by 0x112B79: std::__detail::_Hash_node<std::pair<int const, Cache_elem>, false>* std::__detail::_Hashtable_alloc<std::allocator<std::__detail::_Hash_node<std::pair<int const, Cache_elem>, false> > >::_M_allocate_node<std::pair<int, Cache_elem> >(std::pair<int, Cache_elem>&&) (hashtable_policy.h:1963)
+==7291==    by 0x11239E: std::_Hashtable<int, std::pair<int const, Cache_elem>, std::allocator<std::pair<int const, Cache_elem> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_Scoped_node::_Scoped_node<std::pair<int, Cache_elem> >(std::__detail::_Hashtable_alloc<std::allocator<std::__detail::_Hash_node<std::pair<int const, Cache_elem>, false> > >*, std::pair<int, Cache_elem>&&) (hashtable.h:308)
+==7291==    by 0x111836: std::pair<std::__detail::_Node_iterator<std::pair<int const, Cache_elem>, false, false>, bool> std::_Hashtable<int, std::pair<int const, Cache_elem>, std::allocator<std::pair<int const, Cache_elem> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_emplace<std::pair<int, Cache_elem> >(std::integral_constant<bool, true>, std::pair<int, Cache_elem>&&) (hashtable.h:2063)
+==7291==    by 0x110DDF: std::pair<std::__detail::_Node_iterator<std::pair<int const, Cache_elem>, false, false>, bool> std::_Hashtable<int, std::pair<int const, Cache_elem>, std::allocator<std::pair<int const, Cache_elem> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::emplace<std::pair<int, Cache_elem> >(std::pair<int, Cache_elem>&&) (hashtable.h:950)
+==7291==    by 0x1106B3: std::enable_if<std::is_constructible<std::pair<int const, Cache_elem>, std::pair<int, Cache_elem>&&>::value, std::pair<std::__detail::_Node_iterator<std::pair<int const, Cache_elem>, false, false>, bool> >::type std::unordered_map<int, Cache_elem, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<int const, Cache_elem> > >::insert<std::pair<int, Cache_elem> >(std::pair<int, Cache_elem>&&) (unordered_map.h:564)
+==7291==    by 0x10EC1A: get_cache_on_map(LFU_cache&, Page_list&) (cache_funcs.cpp:412)
+==7291==    by 0x10C45E: print_test_data(std::basic_ofstream<char, std::char_traits<char> >&, LFU_cache&, Page_list&, int (*)(LFU_cache&, Page_list&), char const*) (tester.cpp:99)
+==7291==    by 0x10C067: test_cache(char*) (tester.cpp:66)
+==7291==    by 0x10B790: main (main.cpp:9)
+==7291== 
+==7291== 8,192 bytes in 1 blocks are still reachable in loss record 12 of 15
+==7291==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==7291==    by 0x496ECE3: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x4972AB5: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x497351D: std::basic_ofstream<char, std::char_traits<char> >::basic_ofstream(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x10BBBB: test_cache(char*) (tester.cpp:12)
+==7291==    by 0x10B790: main (main.cpp:9)
+==7291== 
+==7291== 8,192 bytes in 1 blocks are still reachable in loss record 13 of 15
+==7291==    at 0x484220F: operator new[](unsigned long) (vg_replace_malloc.c:640)
+==7291==    by 0x496ECE3: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x4972AB5: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x4972E17: std::basic_fstream<char, std::char_traits<char> >::basic_fstream(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x10BE2C: test_cache(char*) (tester.cpp:38)
+==7291==    by 0x10B790: main (main.cpp:9)
+==7291== 
+==7291== 72,704 bytes in 1 blocks are still reachable in loss record 14 of 15
+==7291==    at 0x48407B4: malloc (vg_replace_malloc.c:381)
+==7291==    by 0x49097B9: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==7291==    by 0x40048BD: call_init (dl-init.c:90)
+==7291==    by 0x40048BD: call_init (dl-init.c:27)
+==7291==    by 0x40049A3: _dl_init (dl-init.c:137)
+==7291==    by 0x401A90F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+==7291==    by 0x1: ???
+==7291==    by 0x1FFF00035A: ???
+==7291==    by 0x1FFF000361: ???
+==7291== 
+==7291== 165,024 bytes in 6,876 blocks are still reachable in loss record 15 of 15
+==7291==    at 0x4840F2F: operator new(unsigned long) (vg_replace_malloc.c:422)
+==7291==    by 0x112FC0: std::__new_allocator<std::_List_node<int> >::allocate(unsigned long, void const*) (new_allocator.h:137)
+==7291==    by 0x11276A: std::allocator_traits<std::allocator<std::_List_node<int> > >::allocate(std::allocator<std::_List_node<int> >&, unsigned long) (alloc_traits.h:464)
+==7291==    by 0x111D56: std::__cxx11::_List_base<int, std::allocator<int> >::_M_get_node() (stl_list.h:518)
+==7291==    by 0x1112CA: std::_List_node<int>* std::__cxx11::list<int, std::allocator<int> >::_M_create_node<int const&>(int const&) (stl_list.h:710)
+==7291==    by 0x11097D: void std::__cxx11::list<int, std::allocator<int> >::_M_insert<int const&>(std::_List_iterator<int>, int const&) (stl_list.h:2005)
+==7291==    by 0x1100ED: std::__cxx11::list<int, std::allocator<int> >::push_back(int const&) (stl_list.h:1306)
+==7291==    by 0x10D933: get_page_list(Page_list&, int const&, std::basic_fstream<char, std::char_traits<char> >&) (cache_funcs.cpp:12)
+==7291==    by 0x10BF3B: test_cache(char*) (tester.cpp:52)
+==7291==    by 0x10B790: main (main.cpp:9)
+==7291== 
+==7291== LEAK SUMMARY:
+==7291==    definitely lost: 0 bytes in 0 blocks
+==7291==    indirectly lost: 0 bytes in 0 blocks
+==7291==      possibly lost: 0 bytes in 0 blocks
+==7291==    still reachable: 262,522 bytes in 6,975 blocks
+==7291==         suppressed: 0 bytes in 0 blocks
+==7291== 
+==7291== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
